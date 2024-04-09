@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * @author Armando
  */
-public class Paciente extends DadoPessoal{
+public class Paciente extends DadoPessoal {
 
     public Long getIdPaciente() {
         return idPaciente;
@@ -53,41 +53,30 @@ public class Paciente extends DadoPessoal{
         this.historicoConsultasMedicas = historicoConsultasMedicas;
     }
 
-    public Responsavel getContatoResponsavel() {
+    public ArrayList<Responsavel> getContatoResponsavel() {
         return contatoResponsavel;
     }
 
-    public void setContatoResponsavel(Responsavel contatoResponsavel) {
+    public void setContatoResponsavel(ArrayList<Responsavel> contatoResponsavel) {
         this.contatoResponsavel = contatoResponsavel;
     }
 
-    public Paciente(Long idPaciente, int idade, Date dataCadastro, String obsGeral, Responsavel contatoResponsavel, String nomeCompleto, Date dataNascimento, Endereco endereco, ContatoTelEmail contato, Genero genero,ArrayList<ConsultaMedica> historicoConsultasMedicas) {
+    public Paciente(int idade, Date dataCadastro, String obsGeral, String nomeCompleto, Date dataNascimento, Endereco endereco, ContatoTelEmail contato, Genero genero) {
         super(nomeCompleto, dataNascimento, endereco, contato, genero);
-        this.idPaciente = idPaciente;
+        this.idPaciente = (long) proximoId++;
         this.idade = idade;
         this.dataCadastro = dataCadastro;
         this.obsGeral = obsGeral;
-        this.contatoResponsavel = contatoResponsavel;
-        this.historicoConsultasMedicas = historicoConsultasMedicas;
+        this.historicoConsultasMedicas = new ArrayList<>();
+        this.contatoResponsavel = new ArrayList<>();
     }
 
-    public Paciente(Long idPaciente, int idade, Date dataCadastro, String obsGeral, Responsavel contatoResponsavel,ArrayList<ConsultaMedica> historicoConsultasMedicas) {
-        this.idPaciente = idPaciente;
-        this.idade = idade;
-        this.dataCadastro = dataCadastro;
-        this.obsGeral = obsGeral;
-        this.contatoResponsavel = contatoResponsavel;
-        this.historicoConsultasMedicas = historicoConsultasMedicas;
-    }
-    
-    
-    
+    private static int proximoId = 1;
     private Long idPaciente;
     private int idade;
     private Date dataCadastro;
     private String obsGeral;
-    private ArrayList<ConsultaMedica> historicoConsultasMedicas = new ArrayList<>();
-    private Responsavel contatoResponsavel;
-    
-    
+    private ArrayList<ConsultaMedica> historicoConsultasMedicas;
+    private ArrayList<Responsavel> contatoResponsavel;
+
 }

@@ -26,18 +26,14 @@ public class Responsavel extends ContatoTelEmail{
         this.nomeResponsavel = nomeResponsavel;
     }
 
-    public Responsavel(Long idResponsavel, String nomeResponsavel, String telefone, String celular, String email) {
+    public Responsavel(String nomeResponsavel, String telefone, String celular, String email) {
         super(telefone, celular, email);
-        this.idResponsavel = idResponsavel;
+        this.idResponsavel = (long)proximoId++;
         this.nomeResponsavel = nomeResponsavel;
     }
 
-    public Responsavel(Long idResponsavel, String nomeResponsavel) {
-        this.idResponsavel = idResponsavel;
-        this.nomeResponsavel = nomeResponsavel;
-    }
 
-    
+    private static int proximoId=1;
     private Long idResponsavel;
     private String nomeResponsavel;
 }
