@@ -52,23 +52,24 @@ public class Paciente extends DadoPessoal {
     public void setHistoricoConsultasMedicas(ArrayList<ConsultaMedica> historicoConsultasMedicas) {
         this.historicoConsultasMedicas = historicoConsultasMedicas;
     }
-
-    public ArrayList<Responsavel> getContatoResponsavel() {
+    
+        public Responsavel getContatoResponsavel() {
         return contatoResponsavel;
     }
 
-    public void setContatoResponsavel(ArrayList<Responsavel> contatoResponsavel) {
+    public void setContatoResponsavel(Responsavel contatoResponsavel) {
         this.contatoResponsavel = contatoResponsavel;
     }
 
-    public Paciente(int idade, Date dataCadastro, String obsGeral, String nomeCompleto, Date dataNascimento, Endereco endereco, ContatoTelEmail contato, Genero genero) {
+
+    public Paciente(int idade, Date dataCadastro, String obsGeral, String nomeCompleto, Date dataNascimento, Endereco endereco, ContatoTelEmail contato, Genero genero, Responsavel resp) {
         super(nomeCompleto, dataNascimento, endereco, contato, genero);
         this.idPaciente = (long) proximoId++;
         this.idade = idade;
         this.dataCadastro = dataCadastro;
         this.obsGeral = obsGeral;
         this.historicoConsultasMedicas = new ArrayList<>();
-        this.contatoResponsavel = new ArrayList<>();
+        this.contatoResponsavel = resp;
     }
 
     private static int proximoId = 1;
@@ -77,6 +78,6 @@ public class Paciente extends DadoPessoal {
     private Date dataCadastro;
     private String obsGeral;
     private ArrayList<ConsultaMedica> historicoConsultasMedicas;
-    private ArrayList<Responsavel> contatoResponsavel;
+    private Responsavel contatoResponsavel;
 
 }

@@ -8,29 +8,49 @@ import com.armando.prj_clinicahospitalar.back.Paciente;
 import com.armando.prj_clinicahospitalar.back.Endereco;
 import com.armando.prj_clinicahospitalar.back.ContatoTelEmail;
 import com.armando.prj_clinicahospitalar.back.Genero;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+import com.armando.prj_clinicahospitalar.back.Responsavel;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Armando
  */
-public class GerenciarPessoas extends javax.swing.JFrame {
+public class GerenciarPacientes extends javax.swing.JFrame {
 
-    private ArrayList<Paciente> pacientes;
+    DefaultComboBoxModel dm = new DefaultComboBoxModel();
 
-    /**
-     * Creates new form GerenciarPessoas
-     */
-    public GerenciarPessoas() {
+    void preencherComboBox() {
+        for (int i = 0; i < HomePage.pacientes.size(); i++) {
+            dm.addElement(String.valueOf(HomePage.pacientes.get(i).getNomeCompleto()));
+            jComboBox1.setModel(dm);
+        }
+    }
+    
+    void clearFields(){
+        txtNome.setText("");
+        txtBairro.setText("");
+        txtCEP.setText("");
+        txtCel.setText("");
+        txtCelResp.setText("");
+        txtCidade.setText("");
+        txtEmail.setText("");
+        txtEmailResp.setText("");
+        txtEstado.setText("");
+        txtIdade.setText("");
+        txtNomeResp.setText("");
+        txtNum.setText("");
+        txtRua.setText("");
+        txtObs.setText("");
+        txtTel.setText("");
+        txtTelResp.setText("");
+        
+    }
+
+    public GerenciarPacientes() {
         initComponents();
-        pacientes = new ArrayList<>();
-
-        for (int j = 0; j < pacientes.size(); j++) {
-            jComboBox1.addItem(String.valueOf(pacientes.get(j).getIdPaciente()));
+        if (HomePage.pacientes.size() > 0) {
+            preencherComboBox();
         }
     }
 
@@ -88,14 +108,19 @@ public class GerenciarPessoas extends javax.swing.JFrame {
         txtNomeResp = new javax.swing.JTextField();
         lblNomeResp = new javax.swing.JLabel();
         btnCadastrar = new javax.swing.JButton();
+        panelCRUD = new javax.swing.JPanel();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnVoltar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        btnRemove = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gerenciar Pessoas");
         setBackground(new java.awt.Color(255, 255, 255));
+        setPreferredSize(new java.awt.Dimension(800, 600));
         setResizable(false);
+        setSize(new java.awt.Dimension(800, 600));
 
         painelDados.setBackground(new java.awt.Color(255, 255, 255));
         painelDados.setPreferredSize(new java.awt.Dimension(800, 300));
@@ -396,7 +421,7 @@ public class GerenciarPessoas extends javax.swing.JFrame {
         });
 
         panelResp.setBackground(new java.awt.Color(255, 255, 255));
-        panelResp.setBorder(javax.swing.BorderFactory.createTitledBorder("Responsável"));
+        panelResp.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Responsável", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
 
         txtCelResp.setToolTipText("Insira o nome completo do paciente");
         txtCelResp.addActionListener(new java.awt.event.ActionListener() {
@@ -459,7 +484,7 @@ public class GerenciarPessoas extends javax.swing.JFrame {
                             .addComponent(txtCelResp, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panelRespLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtEmailResp, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                            .addComponent(txtEmailResp)
                             .addComponent(lblEmailResp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(panelRespLayout.createSequentialGroup()
                         .addGroup(panelRespLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -498,19 +523,16 @@ public class GerenciarPessoas extends javax.swing.JFrame {
             painelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelPacienteLayout.createSequentialGroup()
                 .addGroup(painelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(lblIdade, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtIdade, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(painelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelResp, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(painelPacienteLayout.createSequentialGroup()
-                        .addComponent(lblObs, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(painelPacienteLayout.createSequentialGroup()
-                        .addComponent(txtObs)
-                        .addContainerGap())))
-            .addGroup(painelPacienteLayout.createSequentialGroup()
-                .addComponent(panelResp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                        .addGroup(painelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(lblIdade, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtIdade, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(painelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblObs, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtObs, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(0, 17, Short.MAX_VALUE))
         );
         painelPacienteLayout.setVerticalGroup(
             painelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -529,7 +551,7 @@ public class GerenciarPessoas extends javax.swing.JFrame {
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        painelDados.add(painelPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 30, 390, 240));
+        painelDados.add(painelPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 30, 400, 240));
 
         btnCadastrar.setText("Cadastrar");
         btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
@@ -539,49 +561,83 @@ public class GerenciarPessoas extends javax.swing.JFrame {
         });
         painelDados.add(btnCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 270, 100, 30));
 
+        panelCRUD.setBackground(new java.awt.Color(255, 255, 255));
+
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("jLabel1");
-
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnVoltarActionPerformed(evt);
             }
         });
+
+        jLabel2.setText("Selecione o paciente:");
+
+        btnRemove.setText("Remover");
+        btnRemove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoveActionPerformed(evt);
+            }
+        });
+
+        btnEditar.setText("Editar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelCRUDLayout = new javax.swing.GroupLayout(panelCRUD);
+        panelCRUD.setLayout(panelCRUDLayout);
+        panelCRUDLayout.setHorizontalGroup(
+            panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCRUDLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelCRUDLayout.createSequentialGroup()
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(btnEditar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnVoltar)
+                        .addGap(57, 57, 57)
+                        .addComponent(btnRemove))
+                    .addComponent(jLabel2))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelCRUDLayout.setVerticalGroup(
+            panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCRUDLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRemove)
+                    .addComponent(btnVoltar)
+                    .addComponent(btnEditar))
+                .addContainerGap(217, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(painelDados, javax.swing.GroupLayout.PREFERRED_SIZE, 797, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 3, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(242, 242, 242)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
-                        .addComponent(jLabel1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(painelDados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelCRUD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(painelDados, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(jButton1)
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addContainerGap(200, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -665,25 +721,43 @@ public class GerenciarPessoas extends javax.swing.JFrame {
         Endereco endereco = new Endereco(txtRua.getText(), Integer.parseInt(txtNum.getText()),
                 txtBairro.getText(), txtCidade.getText(), txtEstado.getText(), Integer.parseInt(txtCEP.getText()));
         ContatoTelEmail contato = new ContatoTelEmail(txtTel.getText(), txtCel.getText(), txtEmail.getText());
-
-        Paciente paciente = new Paciente(Integer.parseInt(txtIdade.getText()), new Date(), txtObs.getText(), txtNome.getText(), dtDataNasc.getDate(), endereco, contato, genero);
-        pacientes.add(paciente);
-        jComboBox1.addItem(paciente.getIdPaciente().toString());
+        Responsavel resp = new Responsavel(txtNomeResp.getText(), txtTelResp.getText(), txtCelResp.getText(), txtEmailResp.getText());
+        Paciente paciente = new Paciente(Integer.parseInt(txtIdade.getText()), new Date(), txtObs.getText(), txtNome.getText(), dtDataNasc.getDate(), endereco, contato, genero,resp);
+        HomePage.pacientes.add(paciente);
+        dm.addElement(paciente.getNomeCompleto());
+        jComboBox1.setModel(dm);
 
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-        String id = jComboBox1.getSelectedItem().toString();
-        jLabel1.setText(pacientes.get(Integer.parseInt(id) - 1).getNomeCompleto());
+        // TODO add your handling code here
+
+        int index = jComboBox1.getSelectedIndex();
+        btnCadastrar.setEnabled(false);
+        txtNome.setText(HomePage.pacientes.get(index).getNomeCompleto());
+        //jLabel1.setText(HomePage.pacientes.get(jComboBox1.getSelectedIndex()).getDataCadastro().toString());
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        HomePage hp = new HomePage();
-        hp.show();
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
 
         dispose();        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
+        int index = jComboBox1.getSelectedIndex();
+        HomePage.pacientes.remove(index);
+        dm = new DefaultComboBoxModel();
+        jComboBox1.setModel(dm);
+        preencherComboBox();
+
+
+    }//GEN-LAST:event_btnRemoveActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        // TODO add your handling code here:
+        btnCadastrar.setEnabled(false);
+
+    }//GEN-LAST:event_btnEditarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -702,32 +776,35 @@ public class GerenciarPessoas extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GerenciarPessoas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GerenciarPacientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GerenciarPessoas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GerenciarPacientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GerenciarPessoas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GerenciarPacientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GerenciarPessoas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GerenciarPacientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GerenciarPessoas().setVisible(true);
+                new GerenciarPacientes().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
+    private javax.swing.JButton btnEditar;
+    private javax.swing.JButton btnRemove;
+    private javax.swing.JButton btnVoltar;
     private javax.swing.ButtonGroup buttonGroup1;
     private com.toedter.calendar.JDateChooser dtDataNasc;
-    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
     private com.toedter.calendar.JDateChooser jDateChooser1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblBairro;
     private javax.swing.JLabel lblCEP;
     private javax.swing.JLabel lblCel;
@@ -749,6 +826,7 @@ public class GerenciarPessoas extends javax.swing.JFrame {
     private javax.swing.JPanel painelDadoPessoal;
     private javax.swing.JPanel painelDados;
     private javax.swing.JPanel painelPaciente;
+    private javax.swing.JPanel panelCRUD;
     private javax.swing.JPanel panelGenero;
     private javax.swing.JPanel panelResp;
     private javax.swing.JRadioButton rdFem;

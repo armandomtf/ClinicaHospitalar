@@ -4,17 +4,19 @@
  */
 package com.armando.prj_clinicahospitalar.front;
 
+import com.armando.prj_clinicahospitalar.back.Paciente;
+import java.util.ArrayList;
+
 /**
  *
  * @author Armando
  */
 public class HomePage extends javax.swing.JFrame {
-
-    /**
-     * Creates new form HomePage
-     */
+    public static ArrayList<Paciente> pacientes;
     public HomePage() {
         initComponents();
+        pacientes = new ArrayList<>();
+        
     }
 
     /**
@@ -26,15 +28,16 @@ public class HomePage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        btnPacientes = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(700, 400));
+        setPreferredSize(new java.awt.Dimension(800, 600));
+        setResizable(false);
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnPacientes.setText("Gerenciar Pacientes");
+        btnPacientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnPacientesActionPerformed(evt);
             }
         });
 
@@ -44,26 +47,24 @@ public class HomePage extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(303, 303, 303)
-                .addComponent(jButton1)
-                .addContainerGap(322, Short.MAX_VALUE))
+                .addComponent(btnPacientes)
+                .addContainerGap(364, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(210, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addContainerGap(410, Short.MAX_VALUE)
+                .addComponent(btnPacientes)
                 .addGap(167, 167, 167))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        GerenciarPessoas gp = new GerenciarPessoas();
+    private void btnPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPacientesActionPerformed
+        GerenciarPacientes gp = new GerenciarPacientes();
         gp.show();
-        
-        dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnPacientesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -101,6 +102,6 @@ public class HomePage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnPacientes;
     // End of variables declaration//GEN-END:variables
 }
