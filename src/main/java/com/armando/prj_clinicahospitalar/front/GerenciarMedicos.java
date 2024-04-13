@@ -296,7 +296,7 @@ public class GerenciarMedicos extends javax.swing.JFrame {
         lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitulo.setText("Cadastrar Médicos");
         lblTitulo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        painelDados.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 785, 20));
+        painelDados.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, -1));
 
         painelDadoPessoal.setBackground(new java.awt.Color(255, 255, 255));
         painelDadoPessoal.setPreferredSize(new java.awt.Dimension(632, 400));
@@ -1295,34 +1295,33 @@ public class GerenciarMedicos extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCRUDLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
                         .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblTitulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 785, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panelCRUDLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(124, 124, 124)
-                                .addComponent(btnVoltar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnLimpar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnRemove)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnAlterar)))
+                            .addComponent(jLabel2)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(124, 124, 124)
+                        .addComponent(btnVoltar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnLimpar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnRemove)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnAlterar)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(panelCRUDLayout.createSequentialGroup()
                         .addComponent(painelDadoPessoal1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(painelMedico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(panelCRUDLayout.createSequentialGroup()
+                .addComponent(lblTitulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         panelCRUDLayout.setVerticalGroup(
             panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCRUDLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(lblTitulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(7, 7, 7)
+                .addComponent(lblTitulo1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnVoltar)
@@ -1337,7 +1336,7 @@ public class GerenciarMedicos extends javax.swing.JFrame {
                 .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(painelDadoPessoal1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(painelMedico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(186, Short.MAX_VALUE))
+                .addContainerGap(187, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Gerenciar", panelCRUD);
@@ -1347,9 +1346,8 @@ public class GerenciarMedicos extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 805, Short.MAX_VALUE)
-                .addGap(75, 75, 75))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1429,7 +1427,6 @@ public class GerenciarMedicos extends javax.swing.JFrame {
             dm.addElement(medico.getNomeCompleto());
             jComboBox1.setModel(dm);
             jComboBox1.setSelectedIndex(0);
-            HomePage.especialidades.clear();
             clearFields();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro: " + e.getMessage() + " favor preencher corretamente os dados!");
