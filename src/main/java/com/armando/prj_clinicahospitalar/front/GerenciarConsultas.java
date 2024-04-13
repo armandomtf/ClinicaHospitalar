@@ -64,6 +64,15 @@ public class GerenciarConsultas extends javax.swing.JFrame {
             cmbConsultas.setModel(dcons);
         }
     }
+    
+    public void clearFields(){
+        txtQueixa.setText("");
+        txtDiagnostico.setText("");
+        txtPrescricao.setText("");
+        rdNao.setSelected(false);
+        rdSim.setSelected(false);
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -485,6 +494,7 @@ public class GerenciarConsultas extends javax.swing.JFrame {
             HomePage.pacientes.get(pacIndex).setHistoricoConsultasMedicas(consultasTemp);
             JOptionPane.showMessageDialog(null, "Consulta criada com sucesso!");
             cmbPacientes1.setSelectedIndex(0);
+            clearFields();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro: " + e.getMessage() + " favor preencher corretamente os dados!");
         }
