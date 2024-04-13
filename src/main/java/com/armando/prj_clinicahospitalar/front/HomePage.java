@@ -4,6 +4,7 @@
  */
 package com.armando.prj_clinicahospitalar.front;
 
+import com.armando.prj_clinicahospitalar.back.Medico;
 import com.armando.prj_clinicahospitalar.back.Paciente;
 import java.util.ArrayList;
 
@@ -12,11 +13,17 @@ import java.util.ArrayList;
  * @author Armando
  */
 public class HomePage extends javax.swing.JFrame {
+
     public static ArrayList<Paciente> pacientes;
+    public static ArrayList<Medico> medicos;
+    public static ArrayList<String> especialidades;
+
     public HomePage() {
         initComponents();
         pacientes = new ArrayList<>();
-        
+        medicos = new ArrayList<>();
+        especialidades = new ArrayList<>();
+
     }
 
     /**
@@ -29,9 +36,10 @@ public class HomePage extends javax.swing.JFrame {
     private void initComponents() {
 
         btnPacientes = new javax.swing.JButton();
+        btnMedicos = new javax.swing.JButton();
+        btnConsultas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 600));
         setResizable(false);
 
         btnPacientes.setText("Gerenciar Pacientes");
@@ -41,19 +49,40 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
+        btnMedicos.setText("Gerenciar Médicos");
+        btnMedicos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMedicosActionPerformed(evt);
+            }
+        });
+
+        btnConsultas.setText("Gerenciar Consultas");
+        btnConsultas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(303, 303, 303)
-                .addComponent(btnPacientes)
-                .addContainerGap(364, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnConsultas)
+                    .addComponent(btnMedicos)
+                    .addComponent(btnPacientes))
+                .addContainerGap(362, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(410, Short.MAX_VALUE)
+                .addContainerGap(313, Short.MAX_VALUE)
+                .addComponent(btnMedicos)
+                .addGap(18, 18, 18)
+                .addComponent(btnConsultas)
+                .addGap(33, 33, 33)
                 .addComponent(btnPacientes)
                 .addGap(167, 167, 167))
         );
@@ -65,6 +94,17 @@ public class HomePage extends javax.swing.JFrame {
         GerenciarPacientes gp = new GerenciarPacientes();
         gp.show();
     }//GEN-LAST:event_btnPacientesActionPerformed
+
+    private void btnMedicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMedicosActionPerformed
+        // TODO add your handling code here:
+        GerenciarMedicos gm = new GerenciarMedicos();
+        gm.show();
+    }//GEN-LAST:event_btnMedicosActionPerformed
+
+    private void btnConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultasActionPerformed
+        GerenciarConsultas gc = new GerenciarConsultas();
+        gc.show();
+    }//GEN-LAST:event_btnConsultasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -102,6 +142,8 @@ public class HomePage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnConsultas;
+    private javax.swing.JButton btnMedicos;
     private javax.swing.JButton btnPacientes;
     // End of variables declaration//GEN-END:variables
 }

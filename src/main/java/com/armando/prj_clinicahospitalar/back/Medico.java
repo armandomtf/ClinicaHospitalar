@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * @author Armando
  */
-public class Medico extends AtendenteHospitalar{
+public class Medico extends AtendenteHospitalar {
 
     public Long getIdMedico() {
         return idMedico;
@@ -45,25 +45,18 @@ public class Medico extends AtendenteHospitalar{
         this.cirurgiao = cirurgiao;
     }
 
-    public Medico(Long idMedico, int numeroCRM, boolean cirurgiao, String setor, int chSemanal, String nomeCompleto, Date dataNascimento, Endereco endereco, ContatoTelEmail contato, Genero genero,ArrayList<String> areasEspecialidade) {
+    public Medico(int numeroCRM, boolean cirurgiao, String setor, int chSemanal, String nomeCompleto, Date dataNascimento, Endereco endereco, ContatoTelEmail contato, Genero genero, ArrayList<String> areasEspecialidade) {
         super(setor, chSemanal, nomeCompleto, dataNascimento, endereco, contato, genero);
-        this.idMedico = idMedico;
+        this.idMedico = (long) proximoId++;
         this.numeroCRM = numeroCRM;
         this.cirurgiao = cirurgiao;
         this.areasEspecialidade = areasEspecialidade;
     }
-
-    public Medico(Long idMedico, int numeroCRM, boolean cirurgiao, String setor, int chSemanal,ArrayList<String> areasEspecialidade) {
-        super(setor, chSemanal);
-        this.idMedico = idMedico;
-        this.numeroCRM = numeroCRM;
-        this.cirurgiao = cirurgiao;
-        this.areasEspecialidade = areasEspecialidade;
-    }
+    
+    private static int proximoId = 1;
     private Long idMedico;
     private int numeroCRM;
     private ArrayList<String> areasEspecialidade = new ArrayList<String>();
     private boolean cirurgiao;
-    
-    
+
 }
