@@ -5,9 +5,16 @@
 package com.armando.prj_clinicahospitalar.front;
 
 import com.armando.prj_clinicahospitalar.back.ConsultaMedica;
+import com.armando.prj_clinicahospitalar.back.Enfermeiro;
 import com.armando.prj_clinicahospitalar.back.Medico;
 import com.armando.prj_clinicahospitalar.back.Paciente;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -18,14 +25,14 @@ public class HomePage extends javax.swing.JFrame {
     public static ArrayList<Paciente> pacientes;
     public static ArrayList<Medico> medicos;
     public static ArrayList<ConsultaMedica> consultas;
-    
+    public static ArrayList<Enfermeiro> enfermeiros;
 
     public HomePage() {
         initComponents();
         pacientes = new ArrayList<>();
         medicos = new ArrayList<>();
-        consultas=new ArrayList<>();
-
+        consultas = new ArrayList<>();
+        enfermeiros = new ArrayList<>();
 
     }
 
@@ -45,6 +52,7 @@ public class HomePage extends javax.swing.JFrame {
         btnMedicos = new javax.swing.JButton();
         btnPacientes = new javax.swing.JButton();
         btnEnfermeiros = new javax.swing.JButton();
+        btnExportar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -115,6 +123,13 @@ public class HomePage extends javax.swing.JFrame {
                 .addContainerGap(44, Short.MAX_VALUE))
         );
 
+        btnExportar.setText("jButton1");
+        btnExportar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExportarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelMainLayout = new javax.swing.GroupLayout(panelMain);
         panelMain.setLayout(panelMainLayout);
         panelMainLayout.setHorizontalGroup(
@@ -125,14 +140,21 @@ public class HomePage extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMainLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(panelButtons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(134, 134, 134))
+                .addGap(28, 28, 28)
+                .addComponent(btnExportar)
+                .addGap(31, 31, 31))
         );
         panelMainLayout.setVerticalGroup(
             panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelMainLayout.createSequentialGroup()
                 .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(panelButtons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelMainLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(panelButtons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelMainLayout.createSequentialGroup()
+                        .addGap(77, 77, 77)
+                        .addComponent(btnExportar)))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
@@ -173,13 +195,19 @@ public class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnConsultasActionPerformed
 
     private void btnEnfermeirosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnfermeirosActionPerformed
-        // TODO add your handling code here:
+        GerenciarEnfermeiros ge = new GerenciarEnfermeiros();
+        ge.show();
     }//GEN-LAST:event_btnEnfermeirosActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
+    private void btnExportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportarActionPerformed
+  
+    
+    }//GEN-LAST:event_btnExportarActionPerformed
+
+/**
+ * @param args the command line arguments
+ */
+public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -190,16 +218,28 @@ public class HomePage extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-                }
+
+}
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(HomePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(HomePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(HomePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(HomePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomePage.class  
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
+} catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(HomePage.class  
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
+} catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(HomePage.class  
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
+} catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(HomePage.class  
+
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -214,6 +254,7 @@ public class HomePage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConsultas;
     private javax.swing.JButton btnEnfermeiros;
+    private javax.swing.JButton btnExportar;
     private javax.swing.JButton btnMedicos;
     private javax.swing.JButton btnPacientes;
     private javax.swing.JLabel lblTitle;

@@ -116,6 +116,7 @@ public class GerenciarConsultas extends javax.swing.JFrame {
         rdNao5 = new javax.swing.JRadioButton();
         btnSalvar = new javax.swing.JButton();
         btnRemover = new javax.swing.JButton();
+        btnVoltar1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -213,7 +214,7 @@ public class GerenciarConsultas extends javax.swing.JFrame {
             panelCriarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCriarLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(229, Short.MAX_VALUE)
                 .addGroup(panelCriarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblPrescricao)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
@@ -228,11 +229,11 @@ public class GerenciarConsultas extends javax.swing.JFrame {
                     .addComponent(panelCirurgia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(171, 171, 171))
             .addGroup(panelCriarLayout.createSequentialGroup()
-                .addGap(282, 282, 282)
-                .addComponent(btnCriar)
-                .addGap(97, 97, 97)
+                .addGap(343, 343, 343)
                 .addComponent(btnVoltar)
-                .addContainerGap(277, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnCriar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelCriarLayout.setVerticalGroup(
             panelCriarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -262,8 +263,8 @@ public class GerenciarConsultas extends javax.swing.JFrame {
                 .addComponent(panelCirurgia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addGroup(panelCriarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCriar)
-                    .addComponent(btnVoltar))
+                    .addComponent(btnCriar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23))
         );
 
@@ -368,6 +369,13 @@ public class GerenciarConsultas extends javax.swing.JFrame {
             }
         });
 
+        btnVoltar1.setText("Voltar");
+        btnVoltar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltar1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelCRUDLayout = new javax.swing.GroupLayout(panelCRUD);
         panelCRUD.setLayout(panelCRUDLayout);
         panelCRUDLayout.setHorizontalGroup(
@@ -391,10 +399,12 @@ public class GerenciarConsultas extends javax.swing.JFrame {
                             .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(192, 192, 192))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCRUDLayout.createSequentialGroup()
-                        .addComponent(btnRemover)
+                        .addComponent(btnVoltar1)
                         .addGap(18, 18, 18)
                         .addComponent(btnSalvar)
-                        .addGap(314, 314, 314))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnRemover)
+                        .addGap(262, 262, 262))))
         );
         panelCRUDLayout.setVerticalGroup(
             panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -424,8 +434,9 @@ public class GerenciarConsultas extends javax.swing.JFrame {
                 .addComponent(panelCirurgia5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSalvar)
-                    .addComponent(btnRemover))
+                    .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRemover, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnVoltar1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17))
         );
 
@@ -439,7 +450,7 @@ public class GerenciarConsultas extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 613, Short.MAX_VALUE)
         );
 
         pack();
@@ -540,6 +551,10 @@ public class GerenciarConsultas extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnRemoverActionPerformed
 
+    private void btnVoltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltar1ActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnVoltar1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -580,6 +595,7 @@ public class GerenciarConsultas extends javax.swing.JFrame {
     private javax.swing.JButton btnRemover;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JButton btnVoltar;
+    private javax.swing.JButton btnVoltar1;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cmbConsultas;
     private javax.swing.JComboBox<String> cmbMedicos;
@@ -606,23 +622,11 @@ public class GerenciarConsultas extends javax.swing.JFrame {
     private javax.swing.JLabel lblTitle1;
     private javax.swing.JPanel panelCRUD;
     private javax.swing.JPanel panelCirurgia;
-    private javax.swing.JPanel panelCirurgia1;
-    private javax.swing.JPanel panelCirurgia2;
-    private javax.swing.JPanel panelCirurgia3;
-    private javax.swing.JPanel panelCirurgia4;
     private javax.swing.JPanel panelCirurgia5;
     private javax.swing.JPanel panelCriar;
     private javax.swing.JRadioButton rdNao;
-    private javax.swing.JRadioButton rdNao1;
-    private javax.swing.JRadioButton rdNao2;
-    private javax.swing.JRadioButton rdNao3;
-    private javax.swing.JRadioButton rdNao4;
     private javax.swing.JRadioButton rdNao5;
     private javax.swing.JRadioButton rdSim;
-    private javax.swing.JRadioButton rdSim1;
-    private javax.swing.JRadioButton rdSim2;
-    private javax.swing.JRadioButton rdSim3;
-    private javax.swing.JRadioButton rdSim4;
     private javax.swing.JRadioButton rdSim5;
     private javax.swing.JTextArea txtDiagnostico;
     private javax.swing.JTextArea txtDiagnostico1;

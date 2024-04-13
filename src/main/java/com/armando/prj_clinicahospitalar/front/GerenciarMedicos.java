@@ -224,12 +224,12 @@ public class GerenciarMedicos extends javax.swing.JFrame {
         chkPsi = new javax.swing.JCheckBox();
         chkOrto = new javax.swing.JCheckBox();
         chkOftalmo = new javax.swing.JCheckBox();
+        btnVoltar1 = new javax.swing.JToggleButton();
         panelCRUD = new javax.swing.JPanel();
         jComboBox1 = new javax.swing.JComboBox<>();
         btnVoltar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         btnRemove = new javax.swing.JButton();
-        btnLimpar = new javax.swing.JButton();
         painelDadoPessoal1 = new javax.swing.JPanel();
         lblNome1 = new javax.swing.JLabel();
         lblDtNasc1 = new javax.swing.JLabel();
@@ -568,7 +568,7 @@ public class GerenciarMedicos extends javax.swing.JFrame {
                 btnCadastrarActionPerformed(evt);
             }
         });
-        painelDados.add(btnCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 330, 100, 30));
+        painelDados.add(btnCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 350, 100, 30));
 
         btnLimpar1.setText("Limpar");
         btnLimpar1.addActionListener(new java.awt.event.ActionListener() {
@@ -576,7 +576,7 @@ public class GerenciarMedicos extends javax.swing.JFrame {
                 btnLimpar1ActionPerformed(evt);
             }
         });
-        painelDados.add(btnLimpar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 330, 90, 30));
+        painelDados.add(btnLimpar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 350, 90, 30));
 
         painelMedico1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -746,15 +746,16 @@ public class GerenciarMedicos extends javax.swing.JFrame {
                             .addComponent(txtCRM1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(panelCirurgiao1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(painelMedico1Layout.createSequentialGroup()
-                        .addGroup(painelMedico1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblSetor1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtSetor1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(painelMedico1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCH1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCH1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(panelEsp1, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(painelMedico1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(panelEsp1, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(painelMedico1Layout.createSequentialGroup()
+                            .addGroup(painelMedico1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblSetor1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtSetor1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(painelMedico1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblCH1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtCH1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(0, 8, Short.MAX_VALUE))
         );
         painelMedico1Layout.setVerticalGroup(
@@ -776,11 +777,20 @@ public class GerenciarMedicos extends javax.swing.JFrame {
                         .addComponent(lblCH1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtCH1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
-                .addComponent(panelEsp1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(panelEsp1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
-        painelDados.add(painelMedico1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, 360, -1));
+        painelDados.add(painelMedico1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, 360, 260));
+
+        btnVoltar1.setText("Voltar");
+        btnVoltar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltar1ActionPerformed(evt);
+            }
+        });
+        painelDados.add(btnVoltar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 350, 90, 30));
 
         jTabbedPane1.addTab("Cadastrar", painelDados);
 
@@ -806,13 +816,6 @@ public class GerenciarMedicos extends javax.swing.JFrame {
         btnRemove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRemoveActionPerformed(evt);
-            }
-        });
-
-        btnLimpar.setText("Limpar");
-        btnLimpar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimparActionPerformed(evt);
             }
         });
 
@@ -1292,51 +1295,48 @@ public class GerenciarMedicos extends javax.swing.JFrame {
         panelCRUDLayout.setHorizontalGroup(
             panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCRUDLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelCRUDLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(124, 124, 124)
-                        .addComponent(btnVoltar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnLimpar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnRemove)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnAlterar)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(panelCRUDLayout.createSequentialGroup()
-                        .addComponent(painelDadoPessoal1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(painelMedico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(panelCRUDLayout.createSequentialGroup()
                 .addComponent(lblTitulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCRUDLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnVoltar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnRemove)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnAlterar)
+                .addGap(299, 299, 299))
+            .addGroup(panelCRUDLayout.createSequentialGroup()
+                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelCRUDLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(painelDadoPessoal1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(painelMedico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelCRUDLayout.createSequentialGroup()
+                        .addGap(293, 293, 293)
+                        .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelCRUDLayout.setVerticalGroup(
             panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCRUDLayout.createSequentialGroup()
                 .addComponent(lblTitulo1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnVoltar)
-                        .addComponent(btnLimpar)
-                        .addComponent(btnRemove)
-                        .addComponent(btnAlterar))
-                    .addGroup(panelCRUDLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(painelDadoPessoal1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(painelMedico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(187, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(139, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Gerenciar", panelCRUD);
@@ -1434,6 +1434,167 @@ public class GerenciarMedicos extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
+    private void btnLimpar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLimpar1ActionPerformed
+
+    private void txtCRM1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCRM1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCRM1ActionPerformed
+
+    private void rdSim1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdSim1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rdSim1ActionPerformed
+
+    private void rdNao1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdNao1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rdNao1ActionPerformed
+
+    private void txtSetor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSetor1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSetor1ActionPerformed
+
+    private void txtCH1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCH1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCH1ActionPerformed
+
+    private void chkCardioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkCardioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chkCardioActionPerformed
+
+    private void chkNeuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkNeuroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chkNeuroActionPerformed
+
+    private void chkOftalmoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkOftalmoActionPerformed
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chkOftalmoActionPerformed
+
+    private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
+        // TODO add your handling code here:
+        try{
+            int index = jComboBox1.getSelectedIndex();
+            HomePage.medicos.get(index).setNomeCompleto(txtNome1.getText());
+            HomePage.medicos.get(index).setDataNascimento(dtDataNasc1.getDate());
+            HomePage.medicos.get(index).getEndereco().setRua(txtRua1.getText());
+            HomePage.medicos.get(index).getEndereco().setNumero(Integer.parseInt(txtNum1.getText()));
+            HomePage.medicos.get(index).getEndereco().setBairro(txtBairro1.getText());
+            HomePage.medicos.get(index).getEndereco().setCidade(txtCidade1.getText());
+            HomePage.medicos.get(index).getEndereco().setEstado(txtEstado1.getText());
+            HomePage.medicos.get(index).getEndereco().setCep(Integer.parseInt(txtCEP1.getText()));
+            HomePage.medicos.get(index).getContato().setTelefone(txtTel1.getText());
+            HomePage.medicos.get(index).getContato().setCelular(txtCel1.getText());
+            HomePage.medicos.get(index).getContato().setEmail(txtEmail1.getText());
+            if (rdMasc1.isSelected()) {
+                HomePage.medicos.get(index).setGenero(Genero.masculino);
+            } else if (rdFem1.isSelected()) {
+                HomePage.medicos.get(index).setGenero(Genero.feminino);
+            }
+            HomePage.medicos.get(index).setNumeroCRM(Integer.parseInt(txtCRM2.getText()));
+            HomePage.medicos.get(index).setSetor(txtSetor.getText());
+            HomePage.medicos.get(index).setChSemanal(Integer.parseInt(txtCH.getText()));
+            if (rdSim.isSelected()) {
+                HomePage.medicos.get(index).setCirurgiao(true);
+            } else if (rdNao.isSelected()) {
+                HomePage.medicos.get(index).setCirurgiao(false);
+            }
+            ArrayList<String> especialidades2 = new ArrayList<String>();
+            especialidades2=preencherEspecialidades2(especialidades2);
+            HomePage.medicos.get(index).setAreasEspecialidade(especialidades2);
+            JOptionPane.showMessageDialog(null, txtNome1.getText() + " foi alterado(a) com sucesso!");
+            preencherComboBox();
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Erro: " + e.getMessage() + " favor preencher corretamente os dados!");
+        }
+    }//GEN-LAST:event_btnAlterarActionPerformed
+
+    private void chkNeuro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkNeuro1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chkNeuro1ActionPerformed
+
+    private void chkCardio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkCardio1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chkCardio1ActionPerformed
+
+    private void txtCHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCHActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCHActionPerformed
+
+    private void txtSetorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSetorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSetorActionPerformed
+
+    private void rdNaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdNaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rdNaoActionPerformed
+
+    private void rdSimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdSimActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rdSimActionPerformed
+
+    private void txtCRM2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCRM2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCRM2ActionPerformed
+
+    private void rdMasc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdMasc1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rdMasc1ActionPerformed
+
+    private void txtEmail1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmail1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmail1ActionPerformed
+
+    private void txtCel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCel1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCel1ActionPerformed
+
+    private void txtTel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTel1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTel1ActionPerformed
+
+    private void txtCEP1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCEP1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCEP1ActionPerformed
+
+    private void txtEstado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEstado1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEstado1ActionPerformed
+
+    private void txtCidade1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCidade1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCidade1ActionPerformed
+
+    private void txtBairro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBairro1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBairro1ActionPerformed
+
+    private void txtNum1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNum1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNum1ActionPerformed
+
+    private void txtRua1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRua1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRua1ActionPerformed
+
+    private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
+        try {
+            int index = jComboBox1.getSelectedIndex();
+            HomePage.medicos.remove(index);
+            preencherComboBox();
+            clearFields();
+            JOptionPane.showMessageDialog(null, "O médico foi removido com sucesso!");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro: " + e.getMessage() + " tente novamente.");
+        }
+
+    }//GEN-LAST:event_btnRemoveActionPerformed
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+
+        dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVoltarActionPerformed
+
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here
         clearFields2();
@@ -1494,175 +1655,12 @@ public class GerenciarMedicos extends javax.swing.JFrame {
             chkOftalmo1.setSelected(true);
         }
 
-
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-
-        dispose();        // TODO add your handling code here:
-    }//GEN-LAST:event_btnVoltarActionPerformed
-
-    private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
-        try {
-            int index = jComboBox1.getSelectedIndex();
-            HomePage.medicos.remove(index);
-            preencherComboBox();
-            clearFields();
-            JOptionPane.showMessageDialog(null, "O médico foi removido com sucesso!");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro: " + e.getMessage() + " tente novamente.");
-        }
-
-
-    }//GEN-LAST:event_btnRemoveActionPerformed
-
-    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
-        clearFields();
+    private void btnVoltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltar1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnLimparActionPerformed
-
-    private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
-        // TODO add your handling code here:
-        try{
-        int index = jComboBox1.getSelectedIndex();
-        HomePage.medicos.get(index).setNomeCompleto(txtNome1.getText());
-        HomePage.medicos.get(index).setDataNascimento(dtDataNasc1.getDate());
-        HomePage.medicos.get(index).getEndereco().setRua(txtRua1.getText());
-        HomePage.medicos.get(index).getEndereco().setNumero(Integer.parseInt(txtNum1.getText()));
-        HomePage.medicos.get(index).getEndereco().setBairro(txtBairro1.getText());
-        HomePage.medicos.get(index).getEndereco().setCidade(txtCidade1.getText());
-        HomePage.medicos.get(index).getEndereco().setEstado(txtEstado1.getText());
-        HomePage.medicos.get(index).getEndereco().setCep(Integer.parseInt(txtCEP1.getText()));
-        HomePage.medicos.get(index).getContato().setTelefone(txtTel1.getText());
-        HomePage.medicos.get(index).getContato().setCelular(txtCel1.getText());
-        HomePage.medicos.get(index).getContato().setEmail(txtEmail1.getText());
-        if (rdMasc1.isSelected()) {
-            HomePage.medicos.get(index).setGenero(Genero.masculino);
-        } else if (rdFem1.isSelected()) {
-            HomePage.medicos.get(index).setGenero(Genero.feminino);
-        }
-        HomePage.medicos.get(index).setNumeroCRM(Integer.parseInt(txtCRM2.getText()));
-        HomePage.medicos.get(index).setSetor(txtSetor.getText());
-        HomePage.medicos.get(index).setChSemanal(Integer.parseInt(txtCH.getText()));
-        if (rdSim.isSelected()) {
-            HomePage.medicos.get(index).setCirurgiao(true);
-        } else if (rdNao.isSelected()) {
-            HomePage.medicos.get(index).setCirurgiao(false);
-        }
-        ArrayList<String> especialidades2 = new ArrayList<String>();
-        especialidades2=preencherEspecialidades2(especialidades2);
-        HomePage.medicos.get(index).setAreasEspecialidade(especialidades2);
-        JOptionPane.showMessageDialog(null, txtNome1.getText() + " foi alterado(a) com sucesso!");
-        preencherComboBox();
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Erro: " + e.getMessage() + " favor preencher corretamente os dados!");
-        }
-    }//GEN-LAST:event_btnAlterarActionPerformed
-
-    private void txtRua1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRua1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtRua1ActionPerformed
-
-    private void txtNum1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNum1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNum1ActionPerformed
-
-    private void txtBairro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBairro1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtBairro1ActionPerformed
-
-    private void txtCidade1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCidade1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCidade1ActionPerformed
-
-    private void txtEstado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEstado1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEstado1ActionPerformed
-
-    private void txtCEP1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCEP1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCEP1ActionPerformed
-
-    private void txtTel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTel1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTel1ActionPerformed
-
-    private void txtCel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCel1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCel1ActionPerformed
-
-    private void txtEmail1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmail1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEmail1ActionPerformed
-
-    private void rdMasc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdMasc1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rdMasc1ActionPerformed
-
-    private void txtCRM2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCRM2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCRM2ActionPerformed
-
-    private void btnLimpar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpar1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnLimpar1ActionPerformed
-
-    private void chkCardio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkCardio1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_chkCardio1ActionPerformed
-
-    private void chkNeuro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkNeuro1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_chkNeuro1ActionPerformed
-
-    private void rdSimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdSimActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rdSimActionPerformed
-
-    private void rdNaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdNaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rdNaoActionPerformed
-
-    private void txtSetorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSetorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSetorActionPerformed
-
-    private void txtCHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCHActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCHActionPerformed
-
-    private void txtCRM1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCRM1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCRM1ActionPerformed
-
-    private void rdSim1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdSim1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rdSim1ActionPerformed
-
-    private void rdNao1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdNao1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rdNao1ActionPerformed
-
-    private void txtSetor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSetor1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSetor1ActionPerformed
-
-    private void txtCH1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCH1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCH1ActionPerformed
-
-    private void chkCardioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkCardioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_chkCardioActionPerformed
-
-    private void chkNeuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkNeuroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_chkNeuroActionPerformed
-
-    private void chkOftalmoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkOftalmoActionPerformed
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_chkOftalmoActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnVoltar1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1705,10 +1703,10 @@ public class GerenciarMedicos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterar;
     private javax.swing.JButton btnCadastrar;
-    private javax.swing.JButton btnLimpar;
     private javax.swing.JButton btnLimpar1;
     private javax.swing.JButton btnRemove;
     private javax.swing.JButton btnVoltar;
+    private javax.swing.JToggleButton btnVoltar1;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JCheckBox chkCardio;

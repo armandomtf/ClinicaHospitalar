@@ -28,17 +28,13 @@ public class Enfermeiro extends AtendenteHospitalar{
         this.treinadoOpRX = treinadoOpRX;
     }
 
-    public Enfermeiro(Long idEnfermeiro, boolean treinadoOpRX, String setor, int chSemanal, String nomeCompleto, Date dataNascimento, Endereco endereco, ContatoTelEmail contato, Genero genero) {
+    public Enfermeiro(boolean treinadoOpRX, String setor, int chSemanal, String nomeCompleto, Date dataNascimento, Endereco endereco, ContatoTelEmail contato, Genero genero) {
         super(setor, chSemanal, nomeCompleto, dataNascimento, endereco, contato, genero);
-        this.idEnfermeiro = idEnfermeiro;
+        this.idEnfermeiro = (long) proximoId++;
         this.treinadoOpRX = treinadoOpRX;
     }
 
-    public Enfermeiro(Long idEnfermeiro, boolean treinadoOpRX, String setor, int chSemanal) {
-        super(setor, chSemanal);
-        this.idEnfermeiro = idEnfermeiro;
-        this.treinadoOpRX = treinadoOpRX;
-    }
+    private static int proximoId = 1;
     private Long idEnfermeiro;
     private boolean treinadoOpRX;
     

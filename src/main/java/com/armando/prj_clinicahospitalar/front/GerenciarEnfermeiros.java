@@ -4,12 +4,11 @@
  */
 package com.armando.prj_clinicahospitalar.front;
 
-import com.armando.prj_clinicahospitalar.back.Paciente;
 import com.armando.prj_clinicahospitalar.back.Endereco;
 import com.armando.prj_clinicahospitalar.back.ContatoTelEmail;
+import com.armando.prj_clinicahospitalar.back.Enfermeiro;
 import com.armando.prj_clinicahospitalar.back.Genero;
-import com.armando.prj_clinicahospitalar.back.Responsavel;
-import java.util.Date;
+import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
@@ -17,15 +16,15 @@ import javax.swing.JOptionPane;
  *
  * @author Armando
  */
-public class GerenciarPacientes extends javax.swing.JFrame {
+public class GerenciarEnfermeiros extends javax.swing.JFrame {
 
     DefaultComboBoxModel dm = new DefaultComboBoxModel();
 
     void preencherComboBox() {
         dm = new DefaultComboBoxModel();
         jComboBox1.setModel(dm);
-        for (int i = 0; i < HomePage.pacientes.size(); i++) {
-            dm.addElement(String.valueOf(HomePage.pacientes.get(i).getNomeCompleto()));
+        for (int i = 0; i < HomePage.enfermeiros.size(); i++) {
+            dm.addElement(String.valueOf(HomePage.enfermeiros.get(i).getNomeCompleto()));
             jComboBox1.setModel(dm);
         }
     }
@@ -35,26 +34,45 @@ public class GerenciarPacientes extends javax.swing.JFrame {
         txtBairro.setText("");
         txtCEP.setText("");
         txtCel.setText("");
-        txtCelResp.setText("");
         txtCidade.setText("");
         txtEmail.setText("");
-        txtEmailResp.setText("");
         txtEstado.setText("");
-        txtIdade.setText("");
-        txtNomeResp.setText("");
         txtNum.setText("");
         txtRua.setText("");
-        txtObs.setText("");
         txtTel.setText("");
-        txtTelResp.setText("");
         rdFem.setSelected(false);
         rdMasc.setSelected(false);
         dtDataNasc.setCalendar(null);
+        rdSim1.setSelected(false);
+        rdNao1.setSelected(false);
+        txtSetor1.setText("");
+        txtCH1.setText("");
+
     }
 
-    public GerenciarPacientes() {
+    void clearFields2() {
+        txtNome1.setText("");
+        txtBairro1.setText("");
+        txtCEP1.setText("");
+        txtCel1.setText("");
+        txtCidade1.setText("");
+        txtEmail1.setText("");
+        txtEstado1.setText("");
+        txtNum1.setText("");
+        txtRua1.setText("");
+        txtTel1.setText("");
+        rdFem2.setSelected(false);
+        rdMasc2.setSelected(false);
+        dtDataNasc1.setCalendar(null);
+        rdSim2.setSelected(false);
+        rdNao2.setSelected(false);
+        txtSetor2.setText("");
+
+    }
+
+    public GerenciarEnfermeiros() {
         initComponents();
-        if (HomePage.pacientes.size() > 0) {
+        if (HomePage.enfermeiros.size() > 0) {
             preencherComboBox();
         }
         clearFields();
@@ -71,6 +89,7 @@ public class GerenciarPacientes extends javax.swing.JFrame {
 
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         painelDados = new javax.swing.JPanel();
         lblTitulo = new javax.swing.JLabel();
@@ -97,31 +116,23 @@ public class GerenciarPacientes extends javax.swing.JFrame {
         lblCel = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
         lblEmail = new javax.swing.JLabel();
+        btnCadastrar = new javax.swing.JButton();
+        btnLimpar1 = new javax.swing.JButton();
+        painelEnfermeiro = new javax.swing.JPanel();
+        panelRX = new javax.swing.JPanel();
+        rdSim1 = new javax.swing.JRadioButton();
+        rdNao1 = new javax.swing.JRadioButton();
+        lblSetor1 = new javax.swing.JLabel();
+        txtSetor1 = new javax.swing.JTextField();
+        lblCH1 = new javax.swing.JLabel();
+        txtCH1 = new javax.swing.JTextField();
         panelGenero = new javax.swing.JPanel();
         rdMasc = new javax.swing.JRadioButton();
         rdFem = new javax.swing.JRadioButton();
-        painelPaciente = new javax.swing.JPanel();
-        lblIdade = new javax.swing.JLabel();
-        txtIdade = new javax.swing.JTextField();
-        lblObs = new javax.swing.JLabel();
-        txtObs = new javax.swing.JTextField();
-        panelResp = new javax.swing.JPanel();
-        txtCelResp = new javax.swing.JTextField();
-        lblCelResp = new javax.swing.JLabel();
-        lblTelResp = new javax.swing.JLabel();
-        txtTelResp = new javax.swing.JTextField();
-        lblEmailResp = new javax.swing.JLabel();
-        txtEmailResp = new javax.swing.JTextField();
-        txtNomeResp = new javax.swing.JTextField();
-        lblNomeResp = new javax.swing.JLabel();
-        btnCadastrar = new javax.swing.JButton();
-        btnLimpar1 = new javax.swing.JButton();
         btnVoltar1 = new javax.swing.JToggleButton();
         panelCRUD = new javax.swing.JPanel();
         jComboBox1 = new javax.swing.JComboBox<>();
-        btnVoltar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        btnRemove = new javax.swing.JButton();
         painelDadoPessoal1 = new javax.swing.JPanel();
         lblNome1 = new javax.swing.JLabel();
         lblDtNasc1 = new javax.swing.JLabel();
@@ -145,25 +156,21 @@ public class GerenciarPacientes extends javax.swing.JFrame {
         lblCel1 = new javax.swing.JLabel();
         txtEmail1 = new javax.swing.JTextField();
         lblEmail1 = new javax.swing.JLabel();
-        panelGenero1 = new javax.swing.JPanel();
-        rdMasc1 = new javax.swing.JRadioButton();
-        rdFem1 = new javax.swing.JRadioButton();
-        painelPaciente1 = new javax.swing.JPanel();
-        lblIdade1 = new javax.swing.JLabel();
-        txtIdade1 = new javax.swing.JTextField();
-        lblObs1 = new javax.swing.JLabel();
-        txtObs1 = new javax.swing.JTextField();
-        btnAlterar = new javax.swing.JButton();
         lblTitulo1 = new javax.swing.JLabel();
-        panelResp1 = new javax.swing.JPanel();
-        txtCelResp1 = new javax.swing.JTextField();
-        lblCelResp1 = new javax.swing.JLabel();
-        lblTelResp1 = new javax.swing.JLabel();
-        txtTelResp1 = new javax.swing.JTextField();
-        lblEmailResp1 = new javax.swing.JLabel();
-        txtEmailResp1 = new javax.swing.JTextField();
-        txtNomeResp1 = new javax.swing.JTextField();
-        lblNomeResp1 = new javax.swing.JLabel();
+        painelEnfermeiro1 = new javax.swing.JPanel();
+        panelRX1 = new javax.swing.JPanel();
+        rdSim2 = new javax.swing.JRadioButton();
+        rdNao2 = new javax.swing.JRadioButton();
+        lblSetor2 = new javax.swing.JLabel();
+        txtSetor2 = new javax.swing.JTextField();
+        lblCH2 = new javax.swing.JLabel();
+        txtCH2 = new javax.swing.JTextField();
+        panelGenero2 = new javax.swing.JPanel();
+        rdMasc2 = new javax.swing.JRadioButton();
+        rdFem2 = new javax.swing.JRadioButton();
+        btnAlterar = new javax.swing.JButton();
+        btnRemove = new javax.swing.JButton();
+        btnVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gerenciar Pacientes");
@@ -180,9 +187,9 @@ public class GerenciarPacientes extends javax.swing.JFrame {
 
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitulo.setText("Cadastrar Pacientes");
+        lblTitulo.setText("Cadastrar Enfermeiros");
         lblTitulo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        painelDados.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 785, 20));
+        painelDados.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, -1));
 
         painelDadoPessoal.setBackground(new java.awt.Color(255, 255, 255));
         painelDadoPessoal.setPreferredSize(new java.awt.Dimension(632, 400));
@@ -297,40 +304,6 @@ public class GerenciarPacientes extends javax.swing.JFrame {
         lblEmail.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblEmail.setText("Email:");
 
-        panelGenero.setBackground(new java.awt.Color(255, 255, 255));
-        panelGenero.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Gênero", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
-
-        buttonGroup1.add(rdMasc);
-        rdMasc.setText("Masculino");
-        rdMasc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rdMascActionPerformed(evt);
-            }
-        });
-
-        buttonGroup1.add(rdFem);
-        rdFem.setText("Feminino");
-
-        javax.swing.GroupLayout panelGeneroLayout = new javax.swing.GroupLayout(panelGenero);
-        panelGenero.setLayout(panelGeneroLayout);
-        panelGeneroLayout.setHorizontalGroup(
-            panelGeneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelGeneroLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(rdMasc)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(rdFem)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        panelGeneroLayout.setVerticalGroup(
-            panelGeneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelGeneroLayout.createSequentialGroup()
-                .addGroup(panelGeneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rdMasc)
-                    .addComponent(rdFem))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
         javax.swing.GroupLayout painelDadoPessoalLayout = new javax.swing.GroupLayout(painelDadoPessoal);
         painelDadoPessoal.setLayout(painelDadoPessoalLayout);
         painelDadoPessoalLayout.setHorizontalGroup(
@@ -338,7 +311,6 @@ public class GerenciarPacientes extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelDadoPessoalLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(painelDadoPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(panelGenero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, painelDadoPessoalLayout.createSequentialGroup()
                         .addGroup(painelDadoPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(lblTel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -441,169 +413,10 @@ public class GerenciarPacientes extends javax.swing.JFrame {
                         .addComponent(lblEmail)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40))
+                .addGap(96, 96, 96))
         );
 
-        painelDados.add(painelDadoPessoal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 400, 290));
-
-        painelPaciente.setBackground(new java.awt.Color(255, 255, 255));
-
-        lblIdade.setBackground(new java.awt.Color(255, 255, 255));
-        lblIdade.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblIdade.setText("Idade:");
-
-        txtIdade.setToolTipText("Insira o nome completo do paciente");
-        txtIdade.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIdadeActionPerformed(evt);
-            }
-        });
-
-        lblObs.setBackground(new java.awt.Color(255, 255, 255));
-        lblObs.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblObs.setText("Observações:");
-
-        txtObs.setToolTipText("Insira o nome completo do paciente");
-        txtObs.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtObsActionPerformed(evt);
-            }
-        });
-
-        panelResp.setBackground(new java.awt.Color(255, 255, 255));
-        panelResp.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Responsável", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
-
-        txtCelResp.setToolTipText("Insira o nome completo do paciente");
-        txtCelResp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCelRespActionPerformed(evt);
-            }
-        });
-
-        lblCelResp.setBackground(new java.awt.Color(255, 255, 255));
-        lblCelResp.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblCelResp.setText("Celular:");
-
-        lblTelResp.setBackground(new java.awt.Color(255, 255, 255));
-        lblTelResp.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblTelResp.setText("Telefone:");
-
-        txtTelResp.setToolTipText("Insira o nome completo do paciente");
-        txtTelResp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTelRespActionPerformed(evt);
-            }
-        });
-
-        lblEmailResp.setBackground(new java.awt.Color(255, 255, 255));
-        lblEmailResp.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblEmailResp.setText("Email:");
-
-        txtEmailResp.setToolTipText("Insira o nome completo do paciente");
-        txtEmailResp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEmailRespActionPerformed(evt);
-            }
-        });
-
-        txtNomeResp.setToolTipText("Insira o nome completo do paciente");
-        txtNomeResp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomeRespActionPerformed(evt);
-            }
-        });
-
-        lblNomeResp.setBackground(new java.awt.Color(255, 255, 255));
-        lblNomeResp.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblNomeResp.setText("Nome completo:");
-
-        javax.swing.GroupLayout panelRespLayout = new javax.swing.GroupLayout(panelResp);
-        panelResp.setLayout(panelRespLayout);
-        panelRespLayout.setHorizontalGroup(
-            panelRespLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelRespLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelRespLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRespLayout.createSequentialGroup()
-                        .addGroup(panelRespLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(lblTelResp, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtTelResp, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelRespLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(lblCelResp, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtCelResp, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelRespLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtEmailResp)
-                            .addComponent(lblEmailResp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(panelRespLayout.createSequentialGroup()
-                        .addGroup(panelRespLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtNomeResp)
-                            .addComponent(lblNomeResp, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        panelRespLayout.setVerticalGroup(
-            panelRespLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRespLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblNomeResp)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNomeResp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panelRespLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelRespLayout.createSequentialGroup()
-                        .addComponent(lblTelResp)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTelResp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelRespLayout.createSequentialGroup()
-                        .addComponent(lblCelResp)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCelResp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelRespLayout.createSequentialGroup()
-                        .addComponent(lblEmailResp)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtEmailResp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(52, 52, 52))
-        );
-
-        javax.swing.GroupLayout painelPacienteLayout = new javax.swing.GroupLayout(painelPaciente);
-        painelPaciente.setLayout(painelPacienteLayout);
-        painelPacienteLayout.setHorizontalGroup(
-            painelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelPacienteLayout.createSequentialGroup()
-                .addGroup(painelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(panelResp, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(painelPacienteLayout.createSequentialGroup()
-                        .addGroup(painelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(lblIdade, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtIdade, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(painelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblObs, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtObs, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 17, Short.MAX_VALUE))
-        );
-        painelPacienteLayout.setVerticalGroup(
-            painelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelPacienteLayout.createSequentialGroup()
-                .addGroup(painelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(painelPacienteLayout.createSequentialGroup()
-                        .addComponent(lblIdade)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(painelPacienteLayout.createSequentialGroup()
-                        .addComponent(lblObs)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtObs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(panelResp, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
-        );
-
-        painelDados.add(painelPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 30, 400, 240));
+        painelDados.add(painelDadoPessoal, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 400, 270));
 
         btnCadastrar.setText("Cadastrar");
         btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
@@ -611,7 +424,7 @@ public class GerenciarPacientes extends javax.swing.JFrame {
                 btnCadastrarActionPerformed(evt);
             }
         });
-        painelDados.add(btnCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 340, 100, 30));
+        painelDados.add(btnCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 320, 100, 30));
 
         btnLimpar1.setText("Limpar");
         btnLimpar1.addActionListener(new java.awt.event.ActionListener() {
@@ -619,7 +432,142 @@ public class GerenciarPacientes extends javax.swing.JFrame {
                 btnLimpar1ActionPerformed(evt);
             }
         });
-        painelDados.add(btnLimpar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, 90, 30));
+        painelDados.add(btnLimpar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 320, 90, 30));
+
+        painelEnfermeiro.setBackground(new java.awt.Color(255, 255, 255));
+
+        panelRX.setBackground(new java.awt.Color(255, 255, 255));
+        panelRX.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Treinado Op Rx?", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
+
+        buttonGroup2.add(rdSim1);
+        rdSim1.setText("Sim");
+        rdSim1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdSim1ActionPerformed(evt);
+            }
+        });
+
+        buttonGroup2.add(rdNao1);
+        rdNao1.setText("Não");
+        rdNao1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdNao1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelRXLayout = new javax.swing.GroupLayout(panelRX);
+        panelRX.setLayout(panelRXLayout);
+        panelRXLayout.setHorizontalGroup(
+            panelRXLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelRXLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(rdSim1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(rdNao1)
+                .addContainerGap(232, Short.MAX_VALUE))
+        );
+        panelRXLayout.setVerticalGroup(
+            panelRXLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelRXLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(rdSim1)
+                .addComponent(rdNao1))
+        );
+
+        lblSetor1.setBackground(new java.awt.Color(255, 255, 255));
+        lblSetor1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblSetor1.setText("Setor:");
+
+        txtSetor1.setToolTipText("Insira o nome completo do paciente");
+        txtSetor1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSetor1ActionPerformed(evt);
+            }
+        });
+
+        lblCH1.setBackground(new java.awt.Color(255, 255, 255));
+        lblCH1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblCH1.setText("Carga Horária:");
+
+        txtCH1.setToolTipText("Insira o nome completo do paciente");
+        txtCH1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCH1ActionPerformed(evt);
+            }
+        });
+
+        panelGenero.setBackground(new java.awt.Color(255, 255, 255));
+        panelGenero.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Gênero", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
+
+        buttonGroup1.add(rdMasc);
+        rdMasc.setText("Masculino");
+        rdMasc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdMascActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(rdFem);
+        rdFem.setText("Feminino");
+
+        javax.swing.GroupLayout panelGeneroLayout = new javax.swing.GroupLayout(panelGenero);
+        panelGenero.setLayout(panelGeneroLayout);
+        panelGeneroLayout.setHorizontalGroup(
+            panelGeneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGeneroLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(rdMasc)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(rdFem)
+                .addContainerGap(167, Short.MAX_VALUE))
+        );
+        panelGeneroLayout.setVerticalGroup(
+            panelGeneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGeneroLayout.createSequentialGroup()
+                .addGroup(panelGeneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rdMasc)
+                    .addComponent(rdFem))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout painelEnfermeiroLayout = new javax.swing.GroupLayout(painelEnfermeiro);
+        painelEnfermeiro.setLayout(painelEnfermeiroLayout);
+        painelEnfermeiroLayout.setHorizontalGroup(
+            painelEnfermeiroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelEnfermeiroLayout.createSequentialGroup()
+                .addGroup(painelEnfermeiroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(painelEnfermeiroLayout.createSequentialGroup()
+                        .addGroup(painelEnfermeiroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblSetor1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtSetor1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(painelEnfermeiroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCH1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCH1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(panelRX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panelGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 12, Short.MAX_VALUE))
+        );
+        painelEnfermeiroLayout.setVerticalGroup(
+            painelEnfermeiroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelEnfermeiroLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelRX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(painelEnfermeiroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelEnfermeiroLayout.createSequentialGroup()
+                        .addComponent(lblSetor1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtSetor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelEnfermeiroLayout.createSequentialGroup()
+                        .addComponent(lblCH1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtCH1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(panelGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(84, Short.MAX_VALUE))
+        );
+
+        painelDados.add(painelEnfermeiro, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, 360, -1));
 
         btnVoltar1.setText("Voltar");
         btnVoltar1.addActionListener(new java.awt.event.ActionListener() {
@@ -627,7 +575,7 @@ public class GerenciarPacientes extends javax.swing.JFrame {
                 btnVoltar1ActionPerformed(evt);
             }
         });
-        painelDados.add(btnVoltar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, 90, 30));
+        painelDados.add(btnVoltar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, 90, 30));
 
         jTabbedPane1.addTab("Cadastrar", painelDados);
 
@@ -639,22 +587,8 @@ public class GerenciarPacientes extends javax.swing.JFrame {
             }
         });
 
-        btnVoltar.setText("Voltar");
-        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVoltarActionPerformed(evt);
-            }
-        });
-
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel2.setText("Selecione o paciente:");
-
-        btnRemove.setText("Remover");
-        btnRemove.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRemoveActionPerformed(evt);
-            }
-        });
+        jLabel2.setText("Selecione o enfermeiro:");
 
         painelDadoPessoal1.setBackground(new java.awt.Color(255, 255, 255));
         painelDadoPessoal1.setPreferredSize(new java.awt.Dimension(632, 400));
@@ -769,48 +703,13 @@ public class GerenciarPacientes extends javax.swing.JFrame {
         lblEmail1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblEmail1.setText("Email:");
 
-        panelGenero1.setBackground(new java.awt.Color(255, 255, 255));
-        panelGenero1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Gênero", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
-
-        buttonGroup1.add(rdMasc1);
-        rdMasc1.setText("Masculino");
-        rdMasc1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rdMasc1ActionPerformed(evt);
-            }
-        });
-
-        buttonGroup1.add(rdFem1);
-        rdFem1.setText("Feminino");
-
-        javax.swing.GroupLayout panelGenero1Layout = new javax.swing.GroupLayout(panelGenero1);
-        panelGenero1.setLayout(panelGenero1Layout);
-        panelGenero1Layout.setHorizontalGroup(
-            panelGenero1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelGenero1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(rdMasc1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(rdFem1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        panelGenero1Layout.setVerticalGroup(
-            panelGenero1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelGenero1Layout.createSequentialGroup()
-                .addGroup(panelGenero1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rdMasc1)
-                    .addComponent(rdFem1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
         javax.swing.GroupLayout painelDadoPessoal1Layout = new javax.swing.GroupLayout(painelDadoPessoal1);
         painelDadoPessoal1.setLayout(painelDadoPessoal1Layout);
         painelDadoPessoal1Layout.setHorizontalGroup(
             painelDadoPessoal1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelDadoPessoal1Layout.createSequentialGroup()
+            .addGroup(painelDadoPessoal1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(painelDadoPessoal1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(panelGenero1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, painelDadoPessoal1Layout.createSequentialGroup()
                         .addGroup(painelDadoPessoal1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(lblTel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -913,62 +812,145 @@ public class GerenciarPacientes extends javax.swing.JFrame {
                         .addComponent(lblEmail1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtEmail1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelGenero1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40))
+                .addGap(39, 39, 39))
         );
 
-        painelPaciente1.setBackground(new java.awt.Color(255, 255, 255));
+        lblTitulo1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblTitulo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitulo1.setText("Gerenciar Enfermeiros");
+        lblTitulo1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lblIdade1.setBackground(new java.awt.Color(255, 255, 255));
-        lblIdade1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblIdade1.setText("Idade:");
+        painelEnfermeiro1.setBackground(new java.awt.Color(255, 255, 255));
 
-        txtIdade1.setToolTipText("Insira o nome completo do paciente");
-        txtIdade1.addActionListener(new java.awt.event.ActionListener() {
+        panelRX1.setBackground(new java.awt.Color(255, 255, 255));
+        panelRX1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Treinado Op Rx?", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
+
+        buttonGroup2.add(rdSim2);
+        rdSim2.setText("Sim");
+        rdSim2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIdade1ActionPerformed(evt);
+                rdSim2ActionPerformed(evt);
             }
         });
 
-        lblObs1.setBackground(new java.awt.Color(255, 255, 255));
-        lblObs1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblObs1.setText("Observações:");
-
-        txtObs1.setToolTipText("Insira o nome completo do paciente");
-        txtObs1.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup2.add(rdNao2);
+        rdNao2.setText("Não");
+        rdNao2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtObs1ActionPerformed(evt);
+                rdNao2ActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout painelPaciente1Layout = new javax.swing.GroupLayout(painelPaciente1);
-        painelPaciente1.setLayout(painelPaciente1Layout);
-        painelPaciente1Layout.setHorizontalGroup(
-            painelPaciente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelPaciente1Layout.createSequentialGroup()
-                .addGroup(painelPaciente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(lblIdade1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtIdade1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(painelPaciente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblObs1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtObs1, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 17, Short.MAX_VALUE))
+        javax.swing.GroupLayout panelRX1Layout = new javax.swing.GroupLayout(panelRX1);
+        panelRX1.setLayout(panelRX1Layout);
+        panelRX1Layout.setHorizontalGroup(
+            panelRX1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelRX1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(rdSim2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(rdNao2)
+                .addContainerGap(232, Short.MAX_VALUE))
         );
-        painelPaciente1Layout.setVerticalGroup(
-            painelPaciente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelPaciente1Layout.createSequentialGroup()
-                .addGroup(painelPaciente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(painelPaciente1Layout.createSequentialGroup()
-                        .addComponent(lblIdade1)
+        panelRX1Layout.setVerticalGroup(
+            panelRX1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelRX1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(rdSim2)
+                .addComponent(rdNao2))
+        );
+
+        lblSetor2.setBackground(new java.awt.Color(255, 255, 255));
+        lblSetor2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblSetor2.setText("Setor:");
+
+        txtSetor2.setToolTipText("Insira o nome completo do paciente");
+        txtSetor2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSetor2ActionPerformed(evt);
+            }
+        });
+
+        lblCH2.setBackground(new java.awt.Color(255, 255, 255));
+        lblCH2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblCH2.setText("Carga Horária:");
+
+        txtCH2.setToolTipText("Insira o nome completo do paciente");
+        txtCH2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCH2ActionPerformed(evt);
+            }
+        });
+
+        panelGenero2.setBackground(new java.awt.Color(255, 255, 255));
+        panelGenero2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Gênero", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
+
+        buttonGroup1.add(rdMasc2);
+        rdMasc2.setText("Masculino");
+        rdMasc2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdMasc2ActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(rdFem2);
+        rdFem2.setText("Feminino");
+
+        javax.swing.GroupLayout panelGenero2Layout = new javax.swing.GroupLayout(panelGenero2);
+        panelGenero2.setLayout(panelGenero2Layout);
+        panelGenero2Layout.setHorizontalGroup(
+            panelGenero2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGenero2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(rdMasc2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(rdFem2)
+                .addContainerGap(167, Short.MAX_VALUE))
+        );
+        panelGenero2Layout.setVerticalGroup(
+            panelGenero2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGenero2Layout.createSequentialGroup()
+                .addGroup(panelGenero2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rdMasc2)
+                    .addComponent(rdFem2))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout painelEnfermeiro1Layout = new javax.swing.GroupLayout(painelEnfermeiro1);
+        painelEnfermeiro1.setLayout(painelEnfermeiro1Layout);
+        painelEnfermeiro1Layout.setHorizontalGroup(
+            painelEnfermeiro1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelEnfermeiro1Layout.createSequentialGroup()
+                .addGroup(painelEnfermeiro1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(painelEnfermeiro1Layout.createSequentialGroup()
+                        .addGroup(painelEnfermeiro1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblSetor2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtSetor2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtIdade1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(painelPaciente1Layout.createSequentialGroup()
-                        .addComponent(lblObs1)
+                        .addGroup(painelEnfermeiro1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCH2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCH2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(panelRX1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panelGenero2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 12, Short.MAX_VALUE))
+        );
+        painelEnfermeiro1Layout.setVerticalGroup(
+            painelEnfermeiro1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelEnfermeiro1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelRX1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(painelEnfermeiro1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelEnfermeiro1Layout.createSequentialGroup()
+                        .addComponent(lblSetor2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtObs1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(txtSetor2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelEnfermeiro1Layout.createSequentialGroup()
+                        .addComponent(lblCH2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtCH2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(panelGenero2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(96, Short.MAX_VALUE))
         );
 
         btnAlterar.setText("Salvar");
@@ -978,165 +960,67 @@ public class GerenciarPacientes extends javax.swing.JFrame {
             }
         });
 
-        lblTitulo1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblTitulo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitulo1.setText("Gerenciar Pacientes");
-        lblTitulo1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        panelResp1.setBackground(new java.awt.Color(255, 255, 255));
-        panelResp1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Responsável", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
-
-        txtCelResp1.setToolTipText("Insira o nome completo do paciente");
-        txtCelResp1.addActionListener(new java.awt.event.ActionListener() {
+        btnRemove.setText("Remover");
+        btnRemove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCelResp1ActionPerformed(evt);
+                btnRemoveActionPerformed(evt);
             }
         });
 
-        lblCelResp1.setBackground(new java.awt.Color(255, 255, 255));
-        lblCelResp1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblCelResp1.setText("Celular:");
-
-        lblTelResp1.setBackground(new java.awt.Color(255, 255, 255));
-        lblTelResp1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblTelResp1.setText("Telefone:");
-
-        txtTelResp1.setToolTipText("Insira o nome completo do paciente");
-        txtTelResp1.addActionListener(new java.awt.event.ActionListener() {
+        btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTelResp1ActionPerformed(evt);
+                btnVoltarActionPerformed(evt);
             }
         });
-
-        lblEmailResp1.setBackground(new java.awt.Color(255, 255, 255));
-        lblEmailResp1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblEmailResp1.setText("Email:");
-
-        txtEmailResp1.setToolTipText("Insira o nome completo do paciente");
-        txtEmailResp1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEmailResp1ActionPerformed(evt);
-            }
-        });
-
-        txtNomeResp1.setToolTipText("Insira o nome completo do paciente");
-        txtNomeResp1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomeResp1ActionPerformed(evt);
-            }
-        });
-
-        lblNomeResp1.setBackground(new java.awt.Color(255, 255, 255));
-        lblNomeResp1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblNomeResp1.setText("Nome completo:");
-
-        javax.swing.GroupLayout panelResp1Layout = new javax.swing.GroupLayout(panelResp1);
-        panelResp1.setLayout(panelResp1Layout);
-        panelResp1Layout.setHorizontalGroup(
-            panelResp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelResp1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelResp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelResp1Layout.createSequentialGroup()
-                        .addGroup(panelResp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(lblTelResp1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtTelResp1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelResp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(lblCelResp1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtCelResp1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelResp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtEmailResp1)
-                            .addComponent(lblEmailResp1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(panelResp1Layout.createSequentialGroup()
-                        .addGroup(panelResp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtNomeResp1)
-                            .addComponent(lblNomeResp1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        panelResp1Layout.setVerticalGroup(
-            panelResp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelResp1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblNomeResp1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNomeResp1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panelResp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelResp1Layout.createSequentialGroup()
-                        .addComponent(lblTelResp1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTelResp1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelResp1Layout.createSequentialGroup()
-                        .addComponent(lblCelResp1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCelResp1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelResp1Layout.createSequentialGroup()
-                        .addComponent(lblEmailResp1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtEmailResp1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(52, 52, 52))
-        );
 
         javax.swing.GroupLayout panelCRUDLayout = new javax.swing.GroupLayout(panelCRUD);
         panelCRUD.setLayout(panelCRUDLayout);
         panelCRUDLayout.setHorizontalGroup(
             panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCRUDLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblTitulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelCRUDLayout.createSequentialGroup()
+                        .addGap(295, 295, 295)
                         .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblTitulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 785, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panelCRUDLayout.createSequentialGroup()
-                                .addGap(284, 284, 284)
-                                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jLabel2)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(panelCRUDLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelCRUDLayout.createSequentialGroup()
                         .addComponent(painelDadoPessoal1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelCRUDLayout.createSequentialGroup()
-                                .addComponent(panelResp1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(panelCRUDLayout.createSequentialGroup()
-                                .addComponent(painelPaciente1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
-            .addGroup(panelCRUDLayout.createSequentialGroup()
-                .addGap(274, 274, 274)
-                .addComponent(btnVoltar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnAlterar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnRemove)
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(painelEnfermeiro1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panelCRUDLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnVoltar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnAlterar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnRemove)
+                        .addGap(284, 284, 284))))
         );
         panelCRUDLayout.setVerticalGroup(
             panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCRUDLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(lblTitulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblTitulo1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelCRUDLayout.createSequentialGroup()
-                        .addComponent(painelPaciente1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(panelResp1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(painelDadoPessoal1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(painelEnfermeiro1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(painelDadoPessoal1, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(127, Short.MAX_VALUE))
+                .addContainerGap(177, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Gerenciar", panelCRUD);
@@ -1145,23 +1029,19 @@ public class GerenciarPacientes extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 818, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
+
+        getAccessibleContext().setAccessibleName("Gerenciar Medicos");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtIdadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdadeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtIdadeActionPerformed
-
-    private void txtObsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtObsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtObsActionPerformed
 
     private void rdMascActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdMascActionPerformed
         // TODO add your handling code here:
@@ -1203,46 +1083,33 @@ public class GerenciarPacientes extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtRuaActionPerformed
 
-    private void txtNomeRespActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeRespActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomeRespActionPerformed
-
-    private void txtEmailRespActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailRespActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEmailRespActionPerformed
-
-    private void txtTelRespActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelRespActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTelRespActionPerformed
-
-    private void txtCelRespActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCelRespActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCelRespActionPerformed
-
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
 
         try {
             String generoStr = null;
+            boolean rx = false;
 
             if (rdMasc.isSelected()) {
                 generoStr = rdMasc.getText().toLowerCase();
             } else if (rdFem.isSelected()) {
                 generoStr = rdFem.getText().toLowerCase();
             }
-
+            if (rdSim1.isSelected()) {
+                rx = true;
+            } else if (rdNao1.isSelected()) {
+                rx = false;
+            }
             Genero genero = Genero.valueOf(generoStr);
 
             Endereco endereco = new Endereco(txtRua.getText(), Integer.parseInt(txtNum.getText()),
                     txtBairro.getText(), txtCidade.getText(), txtEstado.getText(), Integer.parseInt(txtCEP.getText()));
             ContatoTelEmail contato = new ContatoTelEmail(txtTel.getText(), txtCel.getText(), txtEmail.getText());
-            Responsavel resp = new Responsavel(txtNomeResp.getText(), txtTelResp.getText(), txtCelResp.getText(), txtEmailResp.getText());
-            Paciente paciente = new Paciente(Integer.parseInt(txtIdade.getText()), new Date(), txtObs.getText(), txtNome.getText(), dtDataNasc.getDate(), endereco, contato, genero, resp);
-            HomePage.pacientes.add(paciente);
+            Enfermeiro enfermeiro = new Enfermeiro(rx, txtSetor1.getText(), Integer.parseInt(txtCH1.getText()), txtNome.getText(), dtDataNasc.getDate(), endereco, contato, genero);
+            HomePage.enfermeiros.add(enfermeiro);
             JOptionPane.showMessageDialog(null, txtNome.getText() + " foi cadastrado(a) com sucesso!");
-            dm.addElement(paciente.getNomeCompleto());
+            dm.addElement(enfermeiro.getNomeCompleto());
             jComboBox1.setModel(dm);
             jComboBox1.setSelectedIndex(0);
-
             clearFields();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro: " + e.getMessage() + " favor preencher corretamente os dados!");
@@ -1252,32 +1119,35 @@ public class GerenciarPacientes extends javax.swing.JFrame {
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here
-
+        clearFields2();
         int index = jComboBox1.getSelectedIndex();
-        txtNome1.setText(HomePage.pacientes.get(index).getNomeCompleto());
-        txtBairro1.setText(HomePage.pacientes.get(index).getEndereco().getBairro());
-        txtCEP1.setText(String.valueOf(HomePage.pacientes.get(index).getEndereco().getCep()));
-        txtCel1.setText(HomePage.pacientes.get(index).getContato().getCelular());
-        txtCelResp1.setText(HomePage.pacientes.get(index).getContatoResponsavel().getCelular());
-        txtCidade1.setText(HomePage.pacientes.get(index).getEndereco().getCidade());
-        txtEmail1.setText(HomePage.pacientes.get(index).getContato().getEmail());
-        txtEmailResp1.setText(HomePage.pacientes.get(index).getContatoResponsavel().getEmail());
-        txtEstado1.setText(HomePage.pacientes.get(index).getEndereco().getEstado());
-        txtIdade1.setText(String.valueOf(HomePage.pacientes.get(index).getIdade()));
-        txtNomeResp1.setText(HomePage.pacientes.get(index).getContatoResponsavel().getNomeResponsavel());
-        txtNum1.setText(String.valueOf(HomePage.pacientes.get(index).getEndereco().getNumero()));
-        txtObs1.setText(HomePage.pacientes.get(index).getObsGeral());
-        txtRua1.setText(HomePage.pacientes.get(index).getEndereco().getRua());
-        txtTel1.setText(HomePage.pacientes.get(index).getContato().getTelefone());
-        txtTelResp1.setText(HomePage.pacientes.get(index).getContatoResponsavel().getTelefone());
-        dtDataNasc1.setDate(HomePage.pacientes.get(index).getDataNascimento());
-        if (HomePage.pacientes.get(index).getGenero().toString() == "masculino") {
-            rdMasc1.setSelected(true);
-            rdFem1.setSelected(false);
+        txtNome1.setText(HomePage.enfermeiros.get(index).getNomeCompleto());
+        txtBairro1.setText(HomePage.enfermeiros.get(index).getEndereco().getBairro());
+        txtCEP1.setText(String.valueOf(HomePage.enfermeiros.get(index).getEndereco().getCep()));
+        txtCel1.setText(HomePage.enfermeiros.get(index).getContato().getCelular());
+        txtCidade1.setText(HomePage.enfermeiros.get(index).getEndereco().getCidade());
+        txtEmail1.setText(HomePage.enfermeiros.get(index).getContato().getEmail());
+        txtEstado1.setText(HomePage.enfermeiros.get(index).getEndereco().getEstado());
+        txtNum1.setText(String.valueOf(HomePage.enfermeiros.get(index).getEndereco().getNumero()));
+        txtRua1.setText(HomePage.enfermeiros.get(index).getEndereco().getRua());
+        txtTel1.setText(HomePage.enfermeiros.get(index).getContato().getTelefone());
+        dtDataNasc1.setDate(HomePage.enfermeiros.get(index).getDataNascimento());
+        if (HomePage.enfermeiros.get(index).getGenero() == Genero.masculino) {
+            rdMasc2.setSelected(true);
+            rdFem2.setSelected(false);
         } else {
-            rdFem1.setSelected(true);
-            rdMasc1.setSelected(false);
+            rdFem2.setSelected(true);
+            rdMasc2.setSelected(false);
         }
+        if (HomePage.enfermeiros.get(index).isTreinadoOpRX()) {
+            rdSim2.setSelected(true);
+            rdNao2.setSelected(false);
+        } else {
+            rdNao2.setSelected(true);
+            rdSim2.setSelected(false);
+        }
+        txtSetor2.setText(HomePage.enfermeiros.get(index).getSetor());
+        txtCH2.setText(String.valueOf(HomePage.enfermeiros.get(index).getChSemanal()));
 
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
@@ -1289,9 +1159,10 @@ public class GerenciarPacientes extends javax.swing.JFrame {
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
         try {
             int index = jComboBox1.getSelectedIndex();
-            HomePage.pacientes.remove(index);
+            HomePage.enfermeiros.remove(index);
             preencherComboBox();
-            clearFields();
+            clearFields2();
+            JOptionPane.showMessageDialog(null, "O enfermeiro foi removido com sucesso!");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro: " + e.getMessage() + " tente novamente.");
         }
@@ -1303,33 +1174,34 @@ public class GerenciarPacientes extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             int index = jComboBox1.getSelectedIndex();
-            HomePage.pacientes.get(index).setNomeCompleto(txtNome1.getText());
-            HomePage.pacientes.get(index).setDataNascimento(dtDataNasc1.getDate());
-            HomePage.pacientes.get(index).getEndereco().setRua(txtRua1.getText());
-            HomePage.pacientes.get(index).getEndereco().setNumero(Integer.parseInt(txtNum1.getText()));
-            HomePage.pacientes.get(index).getEndereco().setBairro(txtBairro1.getText());
-            HomePage.pacientes.get(index).getEndereco().setCidade(txtCidade1.getText());
-            HomePage.pacientes.get(index).getEndereco().setEstado(txtEstado1.getText());
-            HomePage.pacientes.get(index).getEndereco().setCep(Integer.parseInt(txtCEP1.getText()));
-            HomePage.pacientes.get(index).getContato().setTelefone(txtTel1.getText());
-            HomePage.pacientes.get(index).getContato().setCelular(txtCel1.getText());
-            HomePage.pacientes.get(index).getContato().setEmail(txtEmail1.getText());
-            if (rdMasc1.isSelected()) {
-                HomePage.pacientes.get(index).setGenero(Genero.masculino);
-            } else if (rdFem1.isSelected()) {
-                HomePage.pacientes.get(index).setGenero(Genero.feminino);
+            HomePage.enfermeiros.get(index).setNomeCompleto(txtNome1.getText());
+            HomePage.enfermeiros.get(index).setDataNascimento(dtDataNasc1.getDate());
+            HomePage.enfermeiros.get(index).getEndereco().setRua(txtRua1.getText());
+            HomePage.enfermeiros.get(index).getEndereco().setNumero(Integer.parseInt(txtNum1.getText()));
+            HomePage.enfermeiros.get(index).getEndereco().setBairro(txtBairro1.getText());
+            HomePage.enfermeiros.get(index).getEndereco().setCidade(txtCidade1.getText());
+            HomePage.enfermeiros.get(index).getEndereco().setEstado(txtEstado1.getText());
+            HomePage.enfermeiros.get(index).getEndereco().setCep(Integer.parseInt(txtCEP1.getText()));
+            HomePage.enfermeiros.get(index).getContato().setTelefone(txtTel1.getText());
+            HomePage.enfermeiros.get(index).getContato().setCelular(txtCel1.getText());
+            HomePage.enfermeiros.get(index).getContato().setEmail(txtEmail1.getText());
+            if (rdMasc2.isSelected()) {
+                HomePage.enfermeiros.get(index).setGenero(Genero.masculino);
+            } else if (rdFem2.isSelected()) {
+                HomePage.enfermeiros.get(index).setGenero(Genero.feminino);
             }
-            HomePage.pacientes.get(index).setIdade(Integer.parseInt(txtIdade1.getText()));
-            HomePage.pacientes.get(index).setObsGeral(txtObs1.getText());
-            HomePage.pacientes.get(index).getContatoResponsavel().setNomeResponsavel(txtNomeResp1.getText());
-            HomePage.pacientes.get(index).getContatoResponsavel().setEmail(txtEmailResp1.getText());
-            HomePage.pacientes.get(index).getContatoResponsavel().setCelular(txtCelResp1.getText());
-            HomePage.pacientes.get(index).getContatoResponsavel().setTelefone(txtTelResp1.getText());
-            JOptionPane.showMessageDialog(null, txtNome.getText() + " foi alterado(a) com sucesso!");
+            HomePage.enfermeiros.get(index).setSetor(txtSetor2.getText());
+            HomePage.enfermeiros.get(index).setChSemanal(Integer.parseInt(txtCH2.getText()));
+            if (rdSim2.isSelected()) {
+                HomePage.enfermeiros.get(index).setTreinadoOpRX(true);
+            } else if (rdNao2.isSelected()) {
+                HomePage.enfermeiros.get(index).setTreinadoOpRX(false);
+            }
+
+            JOptionPane.showMessageDialog(null, txtNome1.getText() + " foi alterado(a) com sucesso!");
             preencherComboBox();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro: " + e.getMessage() + " favor preencher corretamente os dados!");
-
         }
     }//GEN-LAST:event_btnAlterarActionPerformed
 
@@ -1369,39 +1241,48 @@ public class GerenciarPacientes extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEmail1ActionPerformed
 
-    private void rdMasc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdMasc1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rdMasc1ActionPerformed
-
-    private void txtIdade1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdade1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtIdade1ActionPerformed
-
-    private void txtObs1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtObs1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtObs1ActionPerformed
-
-    private void txtCelResp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCelResp1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCelResp1ActionPerformed
-
-    private void txtTelResp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelResp1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTelResp1ActionPerformed
-
-    private void txtEmailResp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailResp1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEmailResp1ActionPerformed
-
-    private void txtNomeResp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeResp1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomeResp1ActionPerformed
-
     private void btnLimpar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpar1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnLimpar1ActionPerformed
 
+    private void rdSim1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdSim1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rdSim1ActionPerformed
+
+    private void rdNao1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdNao1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rdNao1ActionPerformed
+
+    private void txtSetor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSetor1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSetor1ActionPerformed
+
+    private void txtCH1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCH1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCH1ActionPerformed
+
+    private void rdSim2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdSim2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rdSim2ActionPerformed
+
+    private void rdNao2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdNao2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rdNao2ActionPerformed
+
+    private void txtSetor2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSetor2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSetor2ActionPerformed
+
+    private void txtCH2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCH2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCH2ActionPerformed
+
+    private void rdMasc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdMasc2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rdMasc2ActionPerformed
+
     private void btnVoltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltar1ActionPerformed
+        // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_btnVoltar1ActionPerformed
 
@@ -1422,21 +1303,27 @@ public class GerenciarPacientes extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GerenciarPacientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GerenciarEnfermeiros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GerenciarPacientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GerenciarEnfermeiros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GerenciarPacientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GerenciarEnfermeiros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GerenciarPacientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GerenciarEnfermeiros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GerenciarPacientes().setVisible(true);
+                new GerenciarEnfermeiros().setVisible(true);
             }
         });
     }
@@ -1449,6 +1336,7 @@ public class GerenciarPacientes extends javax.swing.JFrame {
     private javax.swing.JButton btnVoltar;
     private javax.swing.JToggleButton btnVoltar1;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
     private com.toedter.calendar.JDateChooser dtDataNasc;
     private com.toedter.calendar.JDateChooser dtDataNasc1;
     private javax.swing.JComboBox<String> jComboBox1;
@@ -1459,83 +1347,71 @@ public class GerenciarPacientes extends javax.swing.JFrame {
     private javax.swing.JLabel lblBairro1;
     private javax.swing.JLabel lblCEP;
     private javax.swing.JLabel lblCEP1;
+    private javax.swing.JLabel lblCH1;
+    private javax.swing.JLabel lblCH2;
     private javax.swing.JLabel lblCel;
     private javax.swing.JLabel lblCel1;
-    private javax.swing.JLabel lblCelResp;
-    private javax.swing.JLabel lblCelResp1;
     private javax.swing.JLabel lblCidade;
     private javax.swing.JLabel lblCidade1;
     private javax.swing.JLabel lblDtNasc;
     private javax.swing.JLabel lblDtNasc1;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblEmail1;
-    private javax.swing.JLabel lblEmailResp;
-    private javax.swing.JLabel lblEmailResp1;
     private javax.swing.JLabel lblEstado;
     private javax.swing.JLabel lblEstado1;
-    private javax.swing.JLabel lblIdade;
-    private javax.swing.JLabel lblIdade1;
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblNome1;
-    private javax.swing.JLabel lblNomeResp;
-    private javax.swing.JLabel lblNomeResp1;
     private javax.swing.JLabel lblNum;
     private javax.swing.JLabel lblNum1;
-    private javax.swing.JLabel lblObs;
-    private javax.swing.JLabel lblObs1;
     private javax.swing.JLabel lblRua;
     private javax.swing.JLabel lblRua1;
+    private javax.swing.JLabel lblSetor1;
+    private javax.swing.JLabel lblSetor2;
     private javax.swing.JLabel lblTel;
     private javax.swing.JLabel lblTel1;
-    private javax.swing.JLabel lblTelResp;
-    private javax.swing.JLabel lblTelResp1;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblTitulo1;
     private javax.swing.JPanel painelDadoPessoal;
     private javax.swing.JPanel painelDadoPessoal1;
     private javax.swing.JPanel painelDados;
-    private javax.swing.JPanel painelPaciente;
-    private javax.swing.JPanel painelPaciente1;
+    private javax.swing.JPanel painelEnfermeiro;
+    private javax.swing.JPanel painelEnfermeiro1;
     private javax.swing.JPanel panelCRUD;
     private javax.swing.JPanel panelGenero;
-    private javax.swing.JPanel panelGenero1;
-    private javax.swing.JPanel panelResp;
-    private javax.swing.JPanel panelResp1;
+    private javax.swing.JPanel panelGenero2;
+    private javax.swing.JPanel panelRX;
+    private javax.swing.JPanel panelRX1;
     private javax.swing.JRadioButton rdFem;
-    private javax.swing.JRadioButton rdFem1;
+    private javax.swing.JRadioButton rdFem2;
     private javax.swing.JRadioButton rdMasc;
-    private javax.swing.JRadioButton rdMasc1;
+    private javax.swing.JRadioButton rdMasc2;
+    private javax.swing.JRadioButton rdNao1;
+    private javax.swing.JRadioButton rdNao2;
+    private javax.swing.JRadioButton rdSim1;
+    private javax.swing.JRadioButton rdSim2;
     private javax.swing.JTextField txtBairro;
     private javax.swing.JTextField txtBairro1;
     private javax.swing.JTextField txtCEP;
     private javax.swing.JTextField txtCEP1;
+    private javax.swing.JTextField txtCH1;
+    private javax.swing.JTextField txtCH2;
     private javax.swing.JTextField txtCel;
     private javax.swing.JTextField txtCel1;
-    private javax.swing.JTextField txtCelResp;
-    private javax.swing.JTextField txtCelResp1;
     private javax.swing.JTextField txtCidade;
     private javax.swing.JTextField txtCidade1;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtEmail1;
-    private javax.swing.JTextField txtEmailResp;
-    private javax.swing.JTextField txtEmailResp1;
     private javax.swing.JTextField txtEstado;
     private javax.swing.JTextField txtEstado1;
-    private javax.swing.JTextField txtIdade;
-    private javax.swing.JTextField txtIdade1;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtNome1;
-    private javax.swing.JTextField txtNomeResp;
-    private javax.swing.JTextField txtNomeResp1;
     private javax.swing.JTextField txtNum;
     private javax.swing.JTextField txtNum1;
-    private javax.swing.JTextField txtObs;
-    private javax.swing.JTextField txtObs1;
     private javax.swing.JTextField txtRua;
     private javax.swing.JTextField txtRua1;
+    private javax.swing.JTextField txtSetor1;
+    private javax.swing.JTextField txtSetor2;
     private javax.swing.JTextField txtTel;
     private javax.swing.JTextField txtTel1;
-    private javax.swing.JTextField txtTelResp;
-    private javax.swing.JTextField txtTelResp1;
     // End of variables declaration//GEN-END:variables
 }
