@@ -64,15 +64,22 @@ public class GerenciarConsultas extends javax.swing.JFrame {
             cmbConsultas.setModel(dcons);
         }
     }
-    
-    public void clearFields(){
+
+    public void clearFields() {
         txtQueixa.setText("");
         txtDiagnostico.setText("");
         txtPrescricao.setText("");
         rdNao.setSelected(false);
         rdSim.setSelected(false);
     }
-    
+
+    public void clearFields2() {
+        txtQueixa1.setText("");
+        txtDiagnostico1.setText("");
+        txtPrescricao1.setText("");
+        rdNao5.setSelected(false);
+        rdSim5.setSelected(false);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -556,6 +563,7 @@ public class GerenciarConsultas extends javax.swing.JFrame {
             preencherComboConsultas(pacIndex);
             //clearFields();
             JOptionPane.showMessageDialog(null, "A consulta foi removida com sucesso!");
+            clearFields2();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro: " + e.getMessage() + " tente novamente.");
         }

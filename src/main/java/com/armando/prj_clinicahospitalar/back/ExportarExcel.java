@@ -12,6 +12,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -23,8 +25,8 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  */
 public class ExportarExcel {
 
-    public void writeToExcelSheet() {
-        String[] headerPaciente = {"Id paciente", "Idade", "Data de Cadastro", "Observações", "Nome", "Data de Nascimento", "Rua", "Número", "Bairro", "Cidade", "Estado", "CEP", "Telefone", "Celular", "Email", "Genero", "Nome Responsável", "Tel. Responsável", "Cel Responsável", "Email Responsável"};
+    public void writeToExcelSheet(String nomeArq) {
+        String[] headerPaciente = {"Id paciente", "Idade", "Data de Cadastro", "Observações", "Nome", "Data de Nascimento", "Rua", "Número", "Bairro", "Cidade", "Estado", "CEP", "Telefone", "Celular", "Email", "Genero", "Nome Responsável", "Tel. Responsável", "Cel Responsável", "Email Responsável", "Historico"};
 
         XSSFWorkbook workbook = new XSSFWorkbook();
 
@@ -36,9 +38,22 @@ public class ExportarExcel {
             Cell cell = headerRowPaciente.createCell(i);
             cell.setCellValue(headerPaciente[i]);
         }
+        ArrayList<String> histTemp = new ArrayList<>();
         // Creating data rows for each user
         for (int i = 0; i < pacientes.size(); i++) {
             Row dataRow = abaPaciente.createRow(i + 1);
+            for (int j = 0; j < pacientes.get(i).getHistoricoConsultasMedicas().size(); j++) {
+                String idConsulta = String.valueOf(pacientes.get(i).getHistoricoConsultasMedicas().get(j).getIdConsulta());
+                String idPaciente = String.valueOf(pacientes.get(i).getHistoricoConsultasMedicas().get(j).getIdPaciente());
+                String idMedico = String.valueOf(pacientes.get(i).getHistoricoConsultasMedicas().get(j).getIdMedico());
+                String queixa = pacientes.get(i).getHistoricoConsultasMedicas().get(j).getExameQueixa();
+                String diagnostico = pacientes.get(i).getHistoricoConsultasMedicas().get(j).getDiagnostico();
+                String presc = pacientes.get(i).getHistoricoConsultasMedicas().get(j).getPrescricao();
+                String cirur = String.valueOf(pacientes.get(i).getHistoricoConsultasMedicas().get(j).isIndicacaoCirurgica());
+
+                String[] itemsHist = {idConsulta,idPaciente,idMedico,queixa,diagnostico,presc,cirur};
+                histTemp.add(itemsHist.toString());
+            }
             dataRow.createCell(0).setCellValue(pacientes.get(i).getIdPaciente());
             dataRow.createCell(1).setCellValue(pacientes.get(i).getIdade());
             dataRow.createCell(2).setCellValue(pacientes.get(i).getDataCadastro());
@@ -59,6 +74,7 @@ public class ExportarExcel {
             dataRow.createCell(17).setCellValue(pacientes.get(i).getContatoResponsavel().getTelefone());
             dataRow.createCell(18).setCellValue(pacientes.get(i).getContatoResponsavel().getCelular());
             dataRow.createCell(19).setCellValue(pacientes.get(i).getContatoResponsavel().getEmail());
+            dataRow.createCell(20).setCellValue(histTemp.toString());
         }
 
         XSSFSheet abaMedico = workbook.createSheet("Médico");
@@ -142,13 +158,13 @@ public class ExportarExcel {
             dataRow.createCell(4).setCellValue(consultas.get(i).getDiagnostico());
             dataRow.createCell(5).setCellValue(consultas.get(i).getPrescricao());
             dataRow.createCell(6).setCellValue(consultas.get(i).isIndicacaoCirurgica());
-           
+
         }
 
         //Write the workbook in file system
         FileOutputStream out;
         try {
-            out = new FileOutputStream(new File("C:\\Users\\Armando\\Videos\\Output.xlsx"));
+            out = new FileOutputStream(new File("C:\\Users\\Armando\\Videos\\" + nomeArq + ".xlsx"));
 
             workbook.write(out);
             out.close();
