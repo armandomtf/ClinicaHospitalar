@@ -42,10 +42,20 @@ public class Excel extends javax.swing.JFrame {
 
         panelMain = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
-        btnExportar = new javax.swing.JButton();
-        btnVoltar = new javax.swing.JButton();
+        panelExport = new javax.swing.JPanel();
+        txtCaminhoExportar = new javax.swing.JTextField();
         txtNomeArq = new javax.swing.JTextField();
+        btnExportar = new javax.swing.JButton();
+        lblCaminho = new javax.swing.JLabel();
+        lblNome = new javax.swing.JLabel();
+        lblCaminho1 = new javax.swing.JLabel();
+        lblCaminho2 = new javax.swing.JLabel();
+        panelImport = new javax.swing.JPanel();
+        txtArquivo = new javax.swing.JTextField();
+        lblArquivo = new javax.swing.JLabel();
+        lblCaminho5 = new javax.swing.JLabel();
         btnImportar = new javax.swing.JButton();
+        btnVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -58,6 +68,9 @@ public class Excel extends javax.swing.JFrame {
         lblTitle.setText("Excel");
         lblTitle.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        panelExport.setBackground(new java.awt.Color(255, 255, 255));
+        panelExport.setBorder(javax.swing.BorderFactory.createTitledBorder("Exportar"));
+
         btnExportar.setText("Exportar");
         btnExportar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,19 +78,114 @@ public class Excel extends javax.swing.JFrame {
             }
         });
 
-        btnVoltar.setText("Voltar");
-        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVoltarActionPerformed(evt);
-            }
-        });
+        lblCaminho.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblCaminho.setText("Caminho:");
 
-        txtNomeArq.setText("jTextField1");
+        lblNome.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblNome.setText("Nome:");
+
+        lblCaminho1.setFont(new java.awt.Font("Segoe UI", 2, 10)); // NOI18N
+        lblCaminho1.setText("Ex: C:\\\\Users\\\\Armando\\\\Desktop\\\\  - usar duas contrabarras \"\\\\\"");
+
+        lblCaminho2.setFont(new java.awt.Font("Segoe UI", 2, 10)); // NOI18N
+        lblCaminho2.setText("Favor escrever o nome do arquivo sem nenhuma extensão!");
+
+        javax.swing.GroupLayout panelExportLayout = new javax.swing.GroupLayout(panelExport);
+        panelExport.setLayout(panelExportLayout);
+        panelExportLayout.setHorizontalGroup(
+            panelExportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelExportLayout.createSequentialGroup()
+                .addContainerGap(75, Short.MAX_VALUE)
+                .addGroup(panelExportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelExportLayout.createSequentialGroup()
+                        .addComponent(lblCaminho2)
+                        .addGap(60, 60, 60))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelExportLayout.createSequentialGroup()
+                        .addGroup(panelExportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCaminho1)
+                            .addGroup(panelExportLayout.createSequentialGroup()
+                                .addGroup(panelExportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblCaminho)
+                                    .addComponent(lblNome))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panelExportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnExportar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtNomeArq, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtCaminhoExportar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(34, 34, 34))))
+        );
+        panelExportLayout.setVerticalGroup(
+            panelExportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelExportLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelExportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCaminhoExportar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCaminho))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblCaminho1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addGroup(panelExportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNomeArq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNome))
+                .addGap(4, 4, 4)
+                .addComponent(lblCaminho2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnExportar)
+                .addContainerGap())
+        );
+
+        panelImport.setBackground(new java.awt.Color(255, 255, 255));
+        panelImport.setBorder(javax.swing.BorderFactory.createTitledBorder("Importar"));
+
+        lblArquivo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblArquivo.setText("Arquivo:");
+
+        lblCaminho5.setFont(new java.awt.Font("Segoe UI", 2, 10)); // NOI18N
+        lblCaminho5.setText("Ex: C:\\\\Users\\\\Armando\\\\Desktop\\\\Arquivo.xlsx ");
 
         btnImportar.setText("Importar");
         btnImportar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnImportarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelImportLayout = new javax.swing.GroupLayout(panelImport);
+        panelImport.setLayout(panelImportLayout);
+        panelImportLayout.setHorizontalGroup(
+            panelImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelImportLayout.createSequentialGroup()
+                .addGap(135, 135, 135)
+                .addComponent(btnImportar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelImportLayout.createSequentialGroup()
+                .addContainerGap(67, Short.MAX_VALUE)
+                .addGroup(panelImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblCaminho5)
+                    .addGroup(panelImportLayout.createSequentialGroup()
+                        .addComponent(lblArquivo)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtArquivo, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(118, 118, 118))
+        );
+        panelImportLayout.setVerticalGroup(
+            panelImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelImportLayout.createSequentialGroup()
+                .addContainerGap(35, Short.MAX_VALUE)
+                .addGroup(panelImportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtArquivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblArquivo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblCaminho5)
+                .addGap(24, 24, 24)
+                .addComponent(btnImportar)
+                .addContainerGap())
+        );
+
+        btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
             }
         });
 
@@ -91,40 +199,33 @@ public class Excel extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMainLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMainLayout.createSequentialGroup()
-                        .addComponent(txtNomeArq, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(322, 322, 322))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMainLayout.createSequentialGroup()
-                        .addComponent(btnVoltar)
-                        .addGap(353, 353, 353))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMainLayout.createSequentialGroup()
-                        .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnImportar, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnExportar, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(341, 341, 341))))
+                    .addComponent(panelImport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMainLayout.createSequentialGroup()
+                            .addComponent(btnVoltar)
+                            .addGap(328, 328, 328))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMainLayout.createSequentialGroup()
+                            .addComponent(panelExport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(180, 180, 180)))))
         );
         panelMainLayout.setVerticalGroup(
             panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelMainLayout.createSequentialGroup()
                 .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(87, 87, 87)
-                .addComponent(txtNomeArq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnExportar, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnImportar, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(panelExport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(panelImport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(btnVoltar)
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addGap(20, 20, 20))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(panelMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(panelMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,7 +237,7 @@ public class Excel extends javax.swing.JFrame {
 
     private void btnExportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportarActionPerformed
         ExportarExcel e1 = new ExportarExcel();
-        e1.writeToExcelSheet(txtNomeArq.getText());
+        e1.writeToExcelSheet(txtNomeArq.getText(),txtCaminhoExportar.getText());
 
     }//GEN-LAST:event_btnExportarActionPerformed
 
@@ -148,7 +249,7 @@ public class Excel extends javax.swing.JFrame {
     private void btnImportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImportarActionPerformed
         // TODO add your handling code here:
         ImportarExcel i1=new ImportarExcel();
-        i1.ReadDataFromExcel("a");
+        i1.ReadDataFromExcel(txtArquivo.getText());
     }//GEN-LAST:event_btnImportarActionPerformed
 
     /**
@@ -199,8 +300,18 @@ public class Excel extends javax.swing.JFrame {
     private javax.swing.JButton btnExportar;
     private javax.swing.JButton btnImportar;
     private javax.swing.JButton btnVoltar;
+    private javax.swing.JLabel lblArquivo;
+    private javax.swing.JLabel lblCaminho;
+    private javax.swing.JLabel lblCaminho1;
+    private javax.swing.JLabel lblCaminho2;
+    private javax.swing.JLabel lblCaminho5;
+    private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JPanel panelExport;
+    private javax.swing.JPanel panelImport;
     private javax.swing.JPanel panelMain;
+    private javax.swing.JTextField txtArquivo;
+    private javax.swing.JTextField txtCaminhoExportar;
     private javax.swing.JTextField txtNomeArq;
     // End of variables declaration//GEN-END:variables
 }

@@ -14,6 +14,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import javax.swing.JOptionPane;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -25,35 +26,24 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  */
 public class ExportarExcel {
 
-    public void writeToExcelSheet(String nomeArq) {
-        String[] headerPaciente = {"Id paciente", "Idade", "Data de Cadastro", "Observações", "Nome", "Data de Nascimento", "Rua", "Número", "Bairro", "Cidade", "Estado", "CEP", "Telefone", "Celular", "Email", "Genero", "Nome Responsável", "Tel. Responsável", "Cel Responsável", "Email Responsável", "Historico"};
-
+    public void writeToExcelSheet(String nomeArq, String caminhoArq) {
+        //Instancia da planilha
         XSSFWorkbook workbook = new XSSFWorkbook();
 
+        //Criando aba Paciente
+        String[] headerPaciente = {"Id paciente", "Idade", "Data de Cadastro", "Observações", "Nome", "Data de Nascimento", "Rua", "Número", "Bairro", "Cidade", "Estado", "CEP", "Telefone", "Celular", "Email", "Genero", "Nome Responsável", "Tel. Responsável", "Cel Responsável", "Email Responsável", "Historico"};
         XSSFSheet abaPaciente = workbook.createSheet("Paciente");
         Row headerRowPaciente = abaPaciente.createRow(0);
 
-        // Creating header
+        //Criando cabeçalho
         for (int i = 0; i < headerPaciente.length; i++) {
             Cell cell = headerRowPaciente.createCell(i);
             cell.setCellValue(headerPaciente[i]);
         }
-        ArrayList<String> histTemp = new ArrayList<>();
-        // Creating data rows for each user
+
+        // Criando as linhas para cada paciente
         for (int i = 0; i < pacientes.size(); i++) {
             Row dataRow = abaPaciente.createRow(i + 1);
-            for (int j = 0; j < pacientes.get(i).getHistoricoConsultasMedicas().size(); j++) {
-                String idConsulta = String.valueOf(pacientes.get(i).getHistoricoConsultasMedicas().get(j).getIdConsulta());
-                String idPaciente = String.valueOf(pacientes.get(i).getHistoricoConsultasMedicas().get(j).getIdPaciente());
-                String idMedico = String.valueOf(pacientes.get(i).getHistoricoConsultasMedicas().get(j).getIdMedico());
-                String queixa = pacientes.get(i).getHistoricoConsultasMedicas().get(j).getExameQueixa();
-                String diagnostico = pacientes.get(i).getHistoricoConsultasMedicas().get(j).getDiagnostico();
-                String presc = pacientes.get(i).getHistoricoConsultasMedicas().get(j).getPrescricao();
-                String cirur = String.valueOf(pacientes.get(i).getHistoricoConsultasMedicas().get(j).isIndicacaoCirurgica());
-
-                String[] itemsHist = {idConsulta,idPaciente,idMedico,queixa,diagnostico,presc,cirur};
-                histTemp.add(itemsHist.toString());
-            }
             dataRow.createCell(0).setCellValue(pacientes.get(i).getIdPaciente());
             dataRow.createCell(1).setCellValue(pacientes.get(i).getIdade());
             dataRow.createCell(2).setCellValue(pacientes.get(i).getDataCadastro());
@@ -74,19 +64,20 @@ public class ExportarExcel {
             dataRow.createCell(17).setCellValue(pacientes.get(i).getContatoResponsavel().getTelefone());
             dataRow.createCell(18).setCellValue(pacientes.get(i).getContatoResponsavel().getCelular());
             dataRow.createCell(19).setCellValue(pacientes.get(i).getContatoResponsavel().getEmail());
-            dataRow.createCell(20).setCellValue(histTemp.toString());
         }
 
+        //Criando aba Médico
         XSSFSheet abaMedico = workbook.createSheet("Médico");
         Row headerRowMedico = abaMedico.createRow(0);
         String[] headerMedico = {"Id medico", "NumeroCRM", "Especialidades", "Cirurgiao", "Setor", "Carga Horária", "Nome", "Data de Nascimento", "Rua", "Número", "Bairro", "Cidade", "Estado", "CEP", "Telefone", "Celular", "Email", "Genero"};
 
-        // Creating header
+        // Criando cabeçalho
         for (int i = 0; i < headerMedico.length; i++) {
             Cell cell = headerRowMedico.createCell(i);
             cell.setCellValue(headerMedico[i]);
         }
-        // Creating data rows for each user
+        
+        // Criando as linhas para cada médico
         for (int i = 0; i < medicos.size(); i++) {
             Row dataRow = abaMedico.createRow(i + 1);
             dataRow.createCell(0).setCellValue(medicos.get(i).getIdMedico());
@@ -109,16 +100,18 @@ public class ExportarExcel {
             dataRow.createCell(17).setCellValue(medicos.get(i).getGenero().toString());
         }
 
+        //Criando aba de enfermeiros
         XSSFSheet abaEnfermeiro = workbook.createSheet("Enfermeiro");
         Row headerRowEnfermeiro = abaEnfermeiro.createRow(0);
         String[] headerEnfermeiro = {"Id enfermeiro", "Treinado Op Rx", "Setor", "Carga Horária", "Nome", "Data de Nascimento", "Rua", "Número", "Bairro", "Cidade", "Estado", "CEP", "Telefone", "Celular", "Email", "Genero"};
 
-        // Creating header
+        // Criando cabeçalho
         for (int i = 0; i < headerEnfermeiro.length; i++) {
             Cell cell = headerRowEnfermeiro.createCell(i);
             cell.setCellValue(headerEnfermeiro[i]);
         }
-        // Creating data rows for each user
+        
+        // Criando as linhas para cada enfermeiro
         for (int i = 0; i < enfermeiros.size(); i++) {
             Row dataRow = abaEnfermeiro.createRow(i + 1);
             dataRow.createCell(0).setCellValue(enfermeiros.get(i).getIdEnfermeiro());
@@ -139,16 +132,18 @@ public class ExportarExcel {
             dataRow.createCell(15).setCellValue(enfermeiros.get(i).getGenero().toString());
         }
 
+        //Criando aba Consulta-Médica
         XSSFSheet abaConsultas = workbook.createSheet("Consulta-Médica");
         Row headerRowConsultas = abaConsultas.createRow(0);
         String[] headerConsultas = {"Id consulta", "Id paciente", "Id médico", "Queixa", "Diagnóstico", "Prescrição", "Indicação Cirurgica"};
 
-        // Creating header
+        // Criando cabeçalho
         for (int i = 0; i < headerConsultas.length; i++) {
             Cell cell = headerRowConsultas.createCell(i);
             cell.setCellValue(headerConsultas[i]);
         }
-        // Creating data rows for each user
+        
+        // Criando as linhas para cada consulta
         for (int i = 0; i < consultas.size(); i++) {
             Row dataRow = abaConsultas.createRow(i + 1);
             dataRow.createCell(0).setCellValue(consultas.get(i).getIdConsulta());
@@ -161,10 +156,12 @@ public class ExportarExcel {
 
         }
 
-        //Write the workbook in file system
+        //Escrita da planilha
         FileOutputStream out;
+        
         try {
-            out = new FileOutputStream(new File("C:\\Users\\Armando\\Videos\\" + nomeArq + ".xlsx"));
+            //Salvando no caminho e com o nome digitado pelo usuário
+            out = new FileOutputStream(new File(caminhoArq + nomeArq + ".xlsx"));
 
             workbook.write(out);
             out.close();
@@ -174,7 +171,7 @@ public class ExportarExcel {
             e.printStackTrace();
         }
 
-        System.out.println("Write to excel sheet done  successfully...........");
+        JOptionPane.showMessageDialog(null, "Arquivo criado com sucesso!");
 
     }
 }

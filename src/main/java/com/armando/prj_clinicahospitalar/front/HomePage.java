@@ -25,6 +25,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  */
 public class HomePage extends javax.swing.JFrame {
 
+    //criando as arraylists
     public static ArrayList<Paciente> pacientes;
     public static ArrayList<Medico> medicos;
     public static ArrayList<ConsultaMedica> consultas;
@@ -32,6 +33,7 @@ public class HomePage extends javax.swing.JFrame {
 
     public HomePage() {
         initComponents();
+        //instanciando as arraylists
         pacientes = new ArrayList<>();
         medicos = new ArrayList<>();
         consultas = new ArrayList<>();
@@ -176,12 +178,13 @@ public class HomePage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPacientesActionPerformed
+        //direciona para aba de pacientes
         GerenciarPacientes gp = new GerenciarPacientes();
         gp.show();
     }//GEN-LAST:event_btnPacientesActionPerformed
 
     private void btnMedicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMedicosActionPerformed
-        // TODO add your handling code here:
+        //direciona para aba de medicos
         GerenciarMedicos gm = new GerenciarMedicos();
         gm.show();
     }//GEN-LAST:event_btnMedicosActionPerformed
@@ -192,12 +195,13 @@ public class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnConsultasActionPerformed
 
     private void btnEnfermeirosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnfermeirosActionPerformed
+       //direciona para aba de enfermeiros
         GerenciarEnfermeiros ge = new GerenciarEnfermeiros();
         ge.show();
     }//GEN-LAST:event_btnEnfermeirosActionPerformed
 
     private void btnExcelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcelActionPerformed
-        // TODO add your handling code here:
+        //direciona para aba de excel
         Excel ex = new Excel();
         ex.show();
     }//GEN-LAST:event_btnExcelActionPerformed

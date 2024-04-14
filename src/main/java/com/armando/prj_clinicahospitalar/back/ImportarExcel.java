@@ -4,6 +4,7 @@
  */
 package com.armando.prj_clinicahospitalar.back;
 
+import com.armando.prj_clinicahospitalar.front.HomePage;
 import static com.armando.prj_clinicahospitalar.front.HomePage.consultas;
 import static com.armando.prj_clinicahospitalar.front.HomePage.enfermeiros;
 import static com.armando.prj_clinicahospitalar.front.HomePage.medicos;
@@ -11,6 +12,7 @@ import static com.armando.prj_clinicahospitalar.front.HomePage.pacientes;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import javax.swing.JOptionPane;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -25,11 +27,11 @@ public class ImportarExcel {
     public void ReadDataFromExcel(String path) {
 
         try {
-            XSSFWorkbook workbook = new XSSFWorkbook("C:\\Users\\Armando\\Videos\\Output.xlsx");
+            XSSFWorkbook workbook = new XSSFWorkbook(path);
 
             Sheet sheet = workbook.getSheetAt(0);
 
-             //Coletando pacientes
+            //Coletando pacientes
             int rowCount = sheet.getLastRowNum() - sheet.getFirstRowNum();
             for (int i = 1; i <= rowCount; i++) {
                 Row row = sheet.getRow(i);
@@ -88,20 +90,34 @@ public class ImportarExcel {
                 Enfermeiro enfermeiro = new Enfermeiro(rx, row.getCell(2).getStringCellValue(), (int) row.getCell(3).getNumericCellValue(), row.getCell(4).getStringCellValue(), row.getCell(5).getDateCellValue(), ee, ce, ge);
                 enfermeiros.add(enfermeiro);
             }
-            
+
             //Coletando consultas
             sheet = workbook.getSheetAt(3);
             rowCount = sheet.getLastRowNum() - sheet.getFirstRowNum();
             for (int i = 1; i <= rowCount; i++) {
                 Row row = sheet.getRow(i);
                 boolean ic = false;
-                if (row.getCell(7).getStringCellValue().contains("TRUE")) {
+                if (row.getCell(6).getBooleanCellValue()) {
                     ic = true;
                 }
-                    ConsultaMedica consulta = new ConsultaMedica((long)row.getCell(1).getNumericCellValue(),(long)row.getCell(2).getNumericCellValue(), row.getCell(3).getStringCellValue(), row.getCell(4).getStringCellValue(),row.getCell(5).getStringCellValue(),ic);
+                ConsultaMedica consulta = new ConsultaMedica((long) row.getCell(1).getNumericCellValue(), (long) row.getCell(2).getNumericCellValue(), row.getCell(3).getStringCellValue(), row.getCell(4).getStringCellValue(), row.getCell(5).getStringCellValue(), ic);
                 consultas.add(consulta);
             }
 
+            //Constroi o historico de consultas na classe pacientes
+            for (int i = 0; i < pacientes.size(); i++) {
+                ArrayList<ConsultaMedica> consultasTemp = new ArrayList<ConsultaMedica>();
+                for (int j = 0; j < consultas.size(); j++) {
+                    if (pacientes.get(i).getIdPaciente() == consultas.get(j).getIdPaciente()) {
+                        ConsultaMedica consulta = new ConsultaMedica(consultas.get(j).getIdPaciente(), consultas.get(j).getIdMedico(), consultas.get(j).getExameQueixa(), consultas.get(j).getExameQueixa(), consultas.get(j).getPrescricao(), consultas.get(j).isIndicacaoCirurgica());
+                        consultasTemp.add(consulta);
+                        pacientes.get(i).setHistoricoConsultasMedicas(consultasTemp);
+                    }
+                }
+
+            }
+
+            JOptionPane.showMessageDialog(null, "Arquivo importado com sucesso!");
         } catch (IOException e) {
             e.printStackTrace();
         }
