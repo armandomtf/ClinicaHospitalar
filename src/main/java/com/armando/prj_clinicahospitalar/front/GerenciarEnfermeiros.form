@@ -289,7 +289,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtNome">
                   <Properties>
-                    <Property name="toolTipText" type="java.lang.String" value="Insira o nome completo do paciente"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Insira o nome completo"/>
                   </Properties>
                 </Component>
                 <Component class="com.toedter.calendar.JDateChooser" name="dtDataNasc">
@@ -312,7 +312,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtRua">
                   <Properties>
-                    <Property name="toolTipText" type="java.lang.String" value="Insira o nome completo do paciente"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Rua"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtRuaActionPerformed"/>
@@ -331,7 +331,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtNum">
                   <Properties>
-                    <Property name="toolTipText" type="java.lang.String" value="Insira o nome completo do paciente"/>
+                    <Property name="toolTipText" type="java.lang.String" value="N&#xfa;mero"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNumActionPerformed"/>
@@ -339,7 +339,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtBairro">
                   <Properties>
-                    <Property name="toolTipText" type="java.lang.String" value="Insira o nome completo do paciente"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Bairro"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtBairroActionPerformed"/>
@@ -369,7 +369,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtCidade">
                   <Properties>
-                    <Property name="toolTipText" type="java.lang.String" value="Insira o nome completo do paciente"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Cidade"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCidadeActionPerformed"/>
@@ -388,7 +388,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtEstado">
                   <Properties>
-                    <Property name="toolTipText" type="java.lang.String" value="Insira o nome completo do paciente"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Estado"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtEstadoActionPerformed"/>
@@ -407,7 +407,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtCEP">
                   <Properties>
-                    <Property name="toolTipText" type="java.lang.String" value="Insira o nome completo do paciente"/>
+                    <Property name="toolTipText" type="java.lang.String" value="CEP"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCEPActionPerformed"/>
@@ -415,7 +415,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtTel">
                   <Properties>
-                    <Property name="toolTipText" type="java.lang.String" value="Insira o nome completo do paciente"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Telefone"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTelActionPerformed"/>
@@ -434,7 +434,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtCel">
                   <Properties>
-                    <Property name="toolTipText" type="java.lang.String" value="Insira o nome completo do paciente"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Celular"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCelActionPerformed"/>
@@ -453,7 +453,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtEmail">
                   <Properties>
-                    <Property name="toolTipText" type="java.lang.String" value="Insira o nome completo do paciente"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Email"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtEmailActionPerformed"/>
@@ -632,7 +632,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtSetor1">
                   <Properties>
-                    <Property name="toolTipText" type="java.lang.String" value="Insira o nome completo do paciente"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Setor"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtSetor1ActionPerformed"/>
@@ -651,7 +651,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtCH1">
                   <Properties>
-                    <Property name="toolTipText" type="java.lang.String" value="Insira o nome completo do paciente"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Carga Hor&#xe1;ria"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCH1ActionPerformed"/>
@@ -1013,7 +1013,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtNome1">
                   <Properties>
-                    <Property name="toolTipText" type="java.lang.String" value="Insira o nome completo do paciente"/>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                 </Component>
                 <Component class="com.toedter.calendar.JDateChooser" name="dtDataNasc1">
@@ -1036,7 +1036,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtRua1">
                   <Properties>
-                    <Property name="toolTipText" type="java.lang.String" value="Insira o nome completo do paciente"/>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtRua1ActionPerformed"/>
@@ -1055,7 +1055,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtNum1">
                   <Properties>
-                    <Property name="toolTipText" type="java.lang.String" value="Insira o nome completo do paciente"/>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNum1ActionPerformed"/>
@@ -1063,7 +1063,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtBairro1">
                   <Properties>
-                    <Property name="toolTipText" type="java.lang.String" value="Insira o nome completo do paciente"/>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtBairro1ActionPerformed"/>
@@ -1093,7 +1093,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtCidade1">
                   <Properties>
-                    <Property name="toolTipText" type="java.lang.String" value="Insira o nome completo do paciente"/>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCidade1ActionPerformed"/>
@@ -1112,7 +1112,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtEstado1">
                   <Properties>
-                    <Property name="toolTipText" type="java.lang.String" value="Insira o nome completo do paciente"/>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtEstado1ActionPerformed"/>
@@ -1131,7 +1131,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtCEP1">
                   <Properties>
-                    <Property name="toolTipText" type="java.lang.String" value="Insira o nome completo do paciente"/>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCEP1ActionPerformed"/>
@@ -1139,7 +1139,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtTel1">
                   <Properties>
-                    <Property name="toolTipText" type="java.lang.String" value="Insira o nome completo do paciente"/>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTel1ActionPerformed"/>
@@ -1158,7 +1158,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtCel1">
                   <Properties>
-                    <Property name="toolTipText" type="java.lang.String" value="Insira o nome completo do paciente"/>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCel1ActionPerformed"/>
@@ -1177,7 +1177,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtEmail1">
                   <Properties>
-                    <Property name="toolTipText" type="java.lang.String" value="Insira o nome completo do paciente"/>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtEmail1ActionPerformed"/>
@@ -1339,7 +1339,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtSetor2">
                   <Properties>
-                    <Property name="toolTipText" type="java.lang.String" value="Insira o nome completo do paciente"/>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtSetor2ActionPerformed"/>
@@ -1358,7 +1358,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtCH2">
                   <Properties>
-                    <Property name="toolTipText" type="java.lang.String" value="Insira o nome completo do paciente"/>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCH2ActionPerformed"/>

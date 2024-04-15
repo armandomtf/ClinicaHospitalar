@@ -27,6 +27,7 @@ public class ImportarExcel {
         try {
             XSSFWorkbook workbook = new XSSFWorkbook(path);
 
+            //Abre aba Pacientes
             Sheet sheet = workbook.getSheetAt(0);
 
             //Coletando pacientes

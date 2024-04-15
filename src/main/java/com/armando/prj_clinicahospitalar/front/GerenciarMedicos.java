@@ -314,7 +314,7 @@ public class GerenciarMedicos extends javax.swing.JFrame {
         lblDtNasc.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblDtNasc.setText("Data de nascimento:");
 
-        txtNome.setToolTipText("Insira o nome completo do paciente");
+        txtNome.setToolTipText("Insira o nome completo do médico");
 
         dtDataNasc.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -784,9 +784,8 @@ public class GerenciarMedicos extends javax.swing.JFrame {
                         .addGroup(painelMedico1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtCH1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtSetor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panelEsp1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         painelDados.add(painelMedico1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, 360, 260));

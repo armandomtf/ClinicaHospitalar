@@ -292,7 +292,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtNome">
                   <Properties>
-                    <Property name="toolTipText" type="java.lang.String" value="Insira o nome completo do paciente"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Insira o nome completo do m&#xe9;dico"/>
                   </Properties>
                 </Component>
                 <Component class="com.toedter.calendar.JDateChooser" name="dtDataNasc">
@@ -631,9 +631,8 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="panelEsp1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="15" max="32767" attributes="0"/>
+                          <EmptySpace pref="27" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>

@@ -205,7 +205,7 @@ public class GerenciarEnfermeiros extends javax.swing.JFrame {
         lblDtNasc.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblDtNasc.setText("Data de nascimento:");
 
-        txtNome.setToolTipText("Insira o nome completo do paciente");
+        txtNome.setToolTipText("Insira o nome completo");
 
         dtDataNasc.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -213,7 +213,7 @@ public class GerenciarEnfermeiros extends javax.swing.JFrame {
         lblRua.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblRua.setText("Rua:");
 
-        txtRua.setToolTipText("Insira o nome completo do paciente");
+        txtRua.setToolTipText("Rua");
         txtRua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtRuaActionPerformed(evt);
@@ -224,14 +224,14 @@ public class GerenciarEnfermeiros extends javax.swing.JFrame {
         lblNum.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblNum.setText("Número:");
 
-        txtNum.setToolTipText("Insira o nome completo do paciente");
+        txtNum.setToolTipText("Número");
         txtNum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNumActionPerformed(evt);
             }
         });
 
-        txtBairro.setToolTipText("Insira o nome completo do paciente");
+        txtBairro.setToolTipText("Bairro");
         txtBairro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtBairroActionPerformed(evt);
@@ -246,7 +246,7 @@ public class GerenciarEnfermeiros extends javax.swing.JFrame {
         lblCidade.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblCidade.setText("Cidade:");
 
-        txtCidade.setToolTipText("Insira o nome completo do paciente");
+        txtCidade.setToolTipText("Cidade");
         txtCidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCidadeActionPerformed(evt);
@@ -257,7 +257,7 @@ public class GerenciarEnfermeiros extends javax.swing.JFrame {
         lblEstado.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblEstado.setText("Estado:");
 
-        txtEstado.setToolTipText("Insira o nome completo do paciente");
+        txtEstado.setToolTipText("Estado");
         txtEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEstadoActionPerformed(evt);
@@ -268,14 +268,14 @@ public class GerenciarEnfermeiros extends javax.swing.JFrame {
         lblCEP.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblCEP.setText("CEP:");
 
-        txtCEP.setToolTipText("Insira o nome completo do paciente");
+        txtCEP.setToolTipText("CEP");
         txtCEP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCEPActionPerformed(evt);
             }
         });
 
-        txtTel.setToolTipText("Insira o nome completo do paciente");
+        txtTel.setToolTipText("Telefone");
         txtTel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTelActionPerformed(evt);
@@ -286,7 +286,7 @@ public class GerenciarEnfermeiros extends javax.swing.JFrame {
         lblTel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblTel.setText("Telefone:");
 
-        txtCel.setToolTipText("Insira o nome completo do paciente");
+        txtCel.setToolTipText("Celular");
         txtCel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCelActionPerformed(evt);
@@ -297,7 +297,7 @@ public class GerenciarEnfermeiros extends javax.swing.JFrame {
         lblCel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblCel.setText("Celular:");
 
-        txtEmail.setToolTipText("Insira o nome completo do paciente");
+        txtEmail.setToolTipText("Email");
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmailActionPerformed(evt);
@@ -481,7 +481,7 @@ public class GerenciarEnfermeiros extends javax.swing.JFrame {
         lblSetor1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblSetor1.setText("Setor:");
 
-        txtSetor1.setToolTipText("Insira o nome completo do paciente");
+        txtSetor1.setToolTipText("Setor");
         txtSetor1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSetor1ActionPerformed(evt);
@@ -492,7 +492,7 @@ public class GerenciarEnfermeiros extends javax.swing.JFrame {
         lblCH1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblCH1.setText("Carga Horária:");
 
-        txtCH1.setToolTipText("Insira o nome completo do paciente");
+        txtCH1.setToolTipText("Carga Horária");
         txtCH1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCH1ActionPerformed(evt);
@@ -604,7 +604,7 @@ public class GerenciarEnfermeiros extends javax.swing.JFrame {
         lblDtNasc1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblDtNasc1.setText("Data de nascimento:");
 
-        txtNome1.setToolTipText("Insira o nome completo do paciente");
+        txtNome1.setToolTipText("");
 
         dtDataNasc1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -612,7 +612,7 @@ public class GerenciarEnfermeiros extends javax.swing.JFrame {
         lblRua1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblRua1.setText("Rua:");
 
-        txtRua1.setToolTipText("Insira o nome completo do paciente");
+        txtRua1.setToolTipText("");
         txtRua1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtRua1ActionPerformed(evt);
@@ -623,14 +623,14 @@ public class GerenciarEnfermeiros extends javax.swing.JFrame {
         lblNum1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblNum1.setText("Número:");
 
-        txtNum1.setToolTipText("Insira o nome completo do paciente");
+        txtNum1.setToolTipText("");
         txtNum1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNum1ActionPerformed(evt);
             }
         });
 
-        txtBairro1.setToolTipText("Insira o nome completo do paciente");
+        txtBairro1.setToolTipText("");
         txtBairro1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtBairro1ActionPerformed(evt);
@@ -645,7 +645,7 @@ public class GerenciarEnfermeiros extends javax.swing.JFrame {
         lblCidade1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblCidade1.setText("Cidade:");
 
-        txtCidade1.setToolTipText("Insira o nome completo do paciente");
+        txtCidade1.setToolTipText("");
         txtCidade1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCidade1ActionPerformed(evt);
@@ -656,7 +656,7 @@ public class GerenciarEnfermeiros extends javax.swing.JFrame {
         lblEstado1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblEstado1.setText("Estado:");
 
-        txtEstado1.setToolTipText("Insira o nome completo do paciente");
+        txtEstado1.setToolTipText("");
         txtEstado1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEstado1ActionPerformed(evt);
@@ -667,14 +667,14 @@ public class GerenciarEnfermeiros extends javax.swing.JFrame {
         lblCEP1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblCEP1.setText("CEP:");
 
-        txtCEP1.setToolTipText("Insira o nome completo do paciente");
+        txtCEP1.setToolTipText("");
         txtCEP1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCEP1ActionPerformed(evt);
             }
         });
 
-        txtTel1.setToolTipText("Insira o nome completo do paciente");
+        txtTel1.setToolTipText("");
         txtTel1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTel1ActionPerformed(evt);
@@ -685,7 +685,7 @@ public class GerenciarEnfermeiros extends javax.swing.JFrame {
         lblTel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblTel1.setText("Telefone:");
 
-        txtCel1.setToolTipText("Insira o nome completo do paciente");
+        txtCel1.setToolTipText("");
         txtCel1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCel1ActionPerformed(evt);
@@ -696,7 +696,7 @@ public class GerenciarEnfermeiros extends javax.swing.JFrame {
         lblCel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblCel1.setText("Celular:");
 
-        txtEmail1.setToolTipText("Insira o nome completo do paciente");
+        txtEmail1.setToolTipText("");
         txtEmail1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmail1ActionPerformed(evt);
@@ -867,7 +867,7 @@ public class GerenciarEnfermeiros extends javax.swing.JFrame {
         lblSetor2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblSetor2.setText("Setor:");
 
-        txtSetor2.setToolTipText("Insira o nome completo do paciente");
+        txtSetor2.setToolTipText("");
         txtSetor2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSetor2ActionPerformed(evt);
@@ -878,7 +878,7 @@ public class GerenciarEnfermeiros extends javax.swing.JFrame {
         lblCH2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblCH2.setText("Carga Horária:");
 
-        txtCH2.setToolTipText("Insira o nome completo do paciente");
+        txtCH2.setToolTipText("");
         txtCH2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCH2ActionPerformed(evt);
