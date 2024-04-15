@@ -10,6 +10,7 @@ package com.armando.prj_clinicahospitalar.back;
  */
 public class Endereco {
 
+    //Construtor
     public Endereco(String rua, int numero, String bairro, String cidade, String estado, int cep) {
         this.rua = rua;
         this.numero = numero;
@@ -18,9 +19,7 @@ public class Endereco {
         this.estado = estado;
         this.cep = cep;
     }
-    
-    public Endereco(){
-    }
+
 
     public String getRua() {
         return rua;

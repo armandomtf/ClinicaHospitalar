@@ -45,6 +45,7 @@ public class Medico extends AtendenteHospitalar {
         this.cirurgiao = cirurgiao;
     }
 
+     //Construtor
     public Medico(int numeroCRM, boolean cirurgiao, String setor, int chSemanal, String nomeCompleto, Date dataNascimento, Endereco endereco, ContatoTelEmail contato, Genero genero, ArrayList<String> areasEspecialidade) {
         super(setor, chSemanal, nomeCompleto, dataNascimento, endereco, contato, genero);
         this.idMedico = (long) proximoId++;
@@ -53,6 +54,7 @@ public class Medico extends AtendenteHospitalar {
         this.areasEspecialidade = areasEspecialidade;
     }
     
+     //Variável estática para gerar id sequencial
     private static int proximoId = 1;
     private Long idMedico;
     private int numeroCRM;

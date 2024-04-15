@@ -12,8 +12,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import javax.swing.JOptionPane;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -31,7 +29,7 @@ public class ExportarExcel {
         XSSFWorkbook workbook = new XSSFWorkbook();
 
         //Criando aba Paciente
-        String[] headerPaciente = {"Id paciente", "Idade", "Data de Cadastro", "Observações", "Nome", "Data de Nascimento", "Rua", "Número", "Bairro", "Cidade", "Estado", "CEP", "Telefone", "Celular", "Email", "Genero", "Nome Responsável", "Tel. Responsável", "Cel Responsável", "Email Responsável", "Historico"};
+        String[] headerPaciente = {"Id paciente", "Idade", "Data de Cadastro", "Observações", "Nome", "Data de Nascimento", "Rua", "Número", "Bairro", "Cidade", "Estado", "CEP", "Telefone", "Celular", "Email", "Genero", "Nome Responsável", "Tel. Responsável", "Cel Responsável", "Email Responsável"};
         XSSFSheet abaPaciente = workbook.createSheet("Paciente");
         Row headerRowPaciente = abaPaciente.createRow(0);
 

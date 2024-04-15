@@ -34,14 +34,14 @@ public class ContatoTelEmail {
         this.email = email;
     }
 
+    //Construtor
     public ContatoTelEmail(String telefone, String celular, String email) {
         this.telefone = telefone;
         this.celular = celular;
         this.email = email;
     }
     
-    public ContatoTelEmail(){
-    }
+
 
     private String telefone;
     private String celular;

@@ -20,6 +20,8 @@ public class GerenciarConsultas extends javax.swing.JFrame {
      */
     public GerenciarConsultas() {
         initComponents();
+        
+        //Chamada das funções de preenchimento do combobox
         preencherComboMedicos();
         preencherComboMedicos1();
         preencherComboPacientes();
@@ -28,6 +30,7 @@ public class GerenciarConsultas extends javax.swing.JFrame {
     }
 
     public void preencherComboMedicos() {
+        //Função para preencher o combobox de médicos da aba de cadastro
         DefaultComboBoxModel dmed = new DefaultComboBoxModel();
         dmed = new DefaultComboBoxModel();
         cmbMedicos.setModel(dmed);
@@ -38,6 +41,7 @@ public class GerenciarConsultas extends javax.swing.JFrame {
     }
 
     public void preencherComboMedicos1() {
+        //Função para preencher o combobox de médicos da aba de consultas
         DefaultComboBoxModel dmed1 = new DefaultComboBoxModel();
         dmed1 = new DefaultComboBoxModel();
         cmbMedicos1.setModel(dmed1);
@@ -48,6 +52,7 @@ public class GerenciarConsultas extends javax.swing.JFrame {
     }
 
     public void preencherComboPacientes() {
+        //Função para preencher o combobox de pacientes da aba de cadastro
         DefaultComboBoxModel dmpac = new DefaultComboBoxModel();
         dmpac = new DefaultComboBoxModel();
         cmbPacientes.setModel(dmpac);
@@ -58,6 +63,7 @@ public class GerenciarConsultas extends javax.swing.JFrame {
     }
 
     public void preencherComboPacientes1() {
+        //Função para preencher o combobox de pacientes da aba de consultas
         DefaultComboBoxModel dmpac1 = new DefaultComboBoxModel();
         dmpac1 = new DefaultComboBoxModel();
         cmbPacientes1.setModel(dmpac1);
@@ -68,6 +74,7 @@ public class GerenciarConsultas extends javax.swing.JFrame {
     }
 
     public void preencherComboConsultas() {
+        //Função para preencher o combobox de consultas
         DefaultComboBoxModel dcons = new DefaultComboBoxModel();
         dcons = new DefaultComboBoxModel();
         cmbConsultas.setModel(dcons);
@@ -78,6 +85,7 @@ public class GerenciarConsultas extends javax.swing.JFrame {
     }
 
     public void clearFields() {
+        //Função para limpar os campos do cadastro
         txtQueixa.setText("");
         txtDiagnostico.setText("");
         txtPrescricao.setText("");
@@ -86,6 +94,7 @@ public class GerenciarConsultas extends javax.swing.JFrame {
     }
 
     public void clearFields2() {
+        //Função para limpar os campos da consulta
         txtQueixa1.setText("");
         txtDiagnostico1.setText("");
         txtPrescricao1.setText("");
@@ -149,6 +158,7 @@ public class GerenciarConsultas extends javax.swing.JFrame {
         cmbMedicos1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Consultas");
         setResizable(false);
 
         panelCriar.setBackground(new java.awt.Color(255, 255, 255));
@@ -506,28 +516,34 @@ public class GerenciarConsultas extends javax.swing.JFrame {
     }//GEN-LAST:event_rdSimActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        // TODO add your handling code here:
+        // Voltar ao menu
         dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCriarActionPerformed
-        // TODO add your handling code here:
+        // Criar consulta
         try {
             int pacIndex = cmbPacientes.getSelectedIndex();
             int medIndex = cmbMedicos.getSelectedIndex();
+            boolean cirurgia = false;
+            
+            //Crio uma array temporária que pegará as consultas existentes do paciente e depois
+            //irá incrementar com a nova consulta e salvar no atributo novamente
             ArrayList<ConsultaMedica> consultasTemp = new ArrayList<ConsultaMedica>();
             consultasTemp = HomePage.pacientes.get(pacIndex).getHistoricoConsultasMedicas();
-            boolean cirurgia = false;
-
-            if (rdSim.isSelected()) {
-                cirurgia = true;
+                       
+            if (rdSim.isSelected()) { //checa se o radio de cirurgia foi selecionado
+                cirurgia = true; 
             }
 
+            //Cria instancia de consulta e adiciona às arraylists
             ConsultaMedica consulta = new ConsultaMedica(HomePage.pacientes.get(pacIndex).getIdPaciente(), HomePage.medicos.get(medIndex).getIdMedico(), txtQueixa.getText(), txtDiagnostico.getText(), txtPrescricao.getText(), cirurgia);
             HomePage.consultas.add(consulta);
             consultasTemp.add(consulta);
 
+            //Setando no histórico de consultaso do paciente
             HomePage.pacientes.get(pacIndex).setHistoricoConsultasMedicas(consultasTemp);
+            
             JOptionPane.showMessageDialog(null, "Consulta criada com sucesso!");
             cmbPacientes1.setSelectedIndex(0);
             preencherComboConsultas();
@@ -543,7 +559,8 @@ public class GerenciarConsultas extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbPacientes1ActionPerformed
 
     private void cmbConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbConsultasActionPerformed
-        // TODO add your handling code here:
+        // Preenche os dados de acordo com a consulta selecionada
+        
         int consIndex = cmbConsultas.getSelectedIndex();
         int pacId = Integer.parseInt(String.valueOf(HomePage.consultas.get(consIndex).getIdPaciente())) - 1;
         int medId = Integer.parseInt(String.valueOf(HomePage.consultas.get(consIndex).getIdMedico())) - 1;
@@ -567,7 +584,7 @@ public class GerenciarConsultas extends javax.swing.JFrame {
     }//GEN-LAST:event_rdSim5ActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        // TODO add your handling code here:
+        // Atualiza as informações da consulta
         try {
             int consIndex = cmbConsultas.getSelectedIndex();
             int pacId = cmbPacientes1.getSelectedIndex() + 1;
@@ -605,7 +622,7 @@ public class GerenciarConsultas extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverActionPerformed
-        // TODO add your handling code here:
+        // Remove a consulta da array de consultas e do histórico do paciente
         try {
             int pacIndex = cmbPacientes1.getSelectedIndex();
             int consIndex = cmbConsultas.getSelectedIndex();

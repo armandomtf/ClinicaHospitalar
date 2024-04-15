@@ -28,16 +28,14 @@ public class AtendenteHospitalar extends DadoPessoal{
         this.chSemanal = chSemanal;
     }
 
+    //Construtor
     public AtendenteHospitalar(String setor, int chSemanal, String nomeCompleto, Date dataNascimento, Endereco endereco, ContatoTelEmail contato, Genero genero) {
         super(nomeCompleto, dataNascimento, endereco, contato, genero);
         this.setor = setor;
         this.chSemanal = chSemanal;
     }
 
-    public AtendenteHospitalar(String setor, int chSemanal) {
-        this.setor = setor;
-        this.chSemanal = chSemanal;
-    }
+
     private String setor;
     private int chSemanal;
     

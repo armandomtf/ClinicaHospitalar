@@ -22,15 +22,17 @@ public class GerenciarPacientes extends javax.swing.JFrame {
     DefaultComboBoxModel dm = new DefaultComboBoxModel();
 
     void preencherComboBox() {
+        //Função para preencher combobox de pacientes
         dm = new DefaultComboBoxModel();
-        jComboBox1.setModel(dm);
+        cmbPacientes.setModel(dm);
         for (int i = 0; i < HomePage.pacientes.size(); i++) {
             dm.addElement(String.valueOf(HomePage.pacientes.get(i).getNomeCompleto()));
-            jComboBox1.setModel(dm);
+            cmbPacientes.setModel(dm);
         }
     }
 
     void clearFields() {
+        //Função para limpar os campos de cadastro
         txtNome.setText("");
         txtBairro.setText("");
         txtCEP.setText("");
@@ -54,6 +56,8 @@ public class GerenciarPacientes extends javax.swing.JFrame {
 
     public GerenciarPacientes() {
         initComponents();
+        
+        //Preenche o combobox se existir pacientes
         if (HomePage.pacientes.size() > 0) {
             preencherComboBox();
         }
@@ -118,7 +122,7 @@ public class GerenciarPacientes extends javax.swing.JFrame {
         btnLimpar1 = new javax.swing.JButton();
         btnVoltar1 = new javax.swing.JToggleButton();
         panelCRUD = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cmbPacientes = new javax.swing.JComboBox<>();
         btnVoltar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         btnRemove = new javax.swing.JButton();
@@ -202,7 +206,7 @@ public class GerenciarPacientes extends javax.swing.JFrame {
         lblRua.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblRua.setText("Rua:");
 
-        txtRua.setToolTipText("Insira o nome completo do paciente");
+        txtRua.setToolTipText("Rua");
         txtRua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtRuaActionPerformed(evt);
@@ -213,14 +217,14 @@ public class GerenciarPacientes extends javax.swing.JFrame {
         lblNum.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblNum.setText("Número:");
 
-        txtNum.setToolTipText("Insira o nome completo do paciente");
+        txtNum.setToolTipText("Número");
         txtNum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNumActionPerformed(evt);
             }
         });
 
-        txtBairro.setToolTipText("Insira o nome completo do paciente");
+        txtBairro.setToolTipText("Bairro");
         txtBairro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtBairroActionPerformed(evt);
@@ -235,7 +239,7 @@ public class GerenciarPacientes extends javax.swing.JFrame {
         lblCidade.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblCidade.setText("Cidade:");
 
-        txtCidade.setToolTipText("Insira o nome completo do paciente");
+        txtCidade.setToolTipText("Cidade");
         txtCidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCidadeActionPerformed(evt);
@@ -246,7 +250,7 @@ public class GerenciarPacientes extends javax.swing.JFrame {
         lblEstado.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblEstado.setText("Estado:");
 
-        txtEstado.setToolTipText("Insira o nome completo do paciente");
+        txtEstado.setToolTipText("Estado");
         txtEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEstadoActionPerformed(evt);
@@ -257,14 +261,14 @@ public class GerenciarPacientes extends javax.swing.JFrame {
         lblCEP.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblCEP.setText("CEP:");
 
-        txtCEP.setToolTipText("Insira o nome completo do paciente");
+        txtCEP.setToolTipText("CEP");
         txtCEP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCEPActionPerformed(evt);
             }
         });
 
-        txtTel.setToolTipText("Insira o nome completo do paciente");
+        txtTel.setToolTipText("Telefone");
         txtTel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTelActionPerformed(evt);
@@ -275,7 +279,7 @@ public class GerenciarPacientes extends javax.swing.JFrame {
         lblTel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblTel.setText("Telefone:");
 
-        txtCel.setToolTipText("Insira o nome completo do paciente");
+        txtCel.setToolTipText("Celular");
         txtCel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCelActionPerformed(evt);
@@ -286,7 +290,7 @@ public class GerenciarPacientes extends javax.swing.JFrame {
         lblCel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblCel.setText("Celular:");
 
-        txtEmail.setToolTipText("Insira o nome completo do paciente");
+        txtEmail.setToolTipText("Email");
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmailActionPerformed(evt);
@@ -454,7 +458,7 @@ public class GerenciarPacientes extends javax.swing.JFrame {
         lblIdade.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblIdade.setText("Idade:");
 
-        txtIdade.setToolTipText("Insira o nome completo do paciente");
+        txtIdade.setToolTipText("Idade");
         txtIdade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIdadeActionPerformed(evt);
@@ -465,7 +469,7 @@ public class GerenciarPacientes extends javax.swing.JFrame {
         lblObs.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblObs.setText("Observações:");
 
-        txtObs.setToolTipText("Insira o nome completo do paciente");
+        txtObs.setToolTipText("Observações");
         txtObs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtObsActionPerformed(evt);
@@ -475,7 +479,7 @@ public class GerenciarPacientes extends javax.swing.JFrame {
         panelResp.setBackground(new java.awt.Color(255, 255, 255));
         panelResp.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Responsável", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
 
-        txtCelResp.setToolTipText("Insira o nome completo do paciente");
+        txtCelResp.setToolTipText("Celular Responsável");
         txtCelResp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCelRespActionPerformed(evt);
@@ -490,7 +494,7 @@ public class GerenciarPacientes extends javax.swing.JFrame {
         lblTelResp.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblTelResp.setText("Telefone:");
 
-        txtTelResp.setToolTipText("Insira o nome completo do paciente");
+        txtTelResp.setToolTipText("Telefone Responsável");
         txtTelResp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTelRespActionPerformed(evt);
@@ -501,14 +505,14 @@ public class GerenciarPacientes extends javax.swing.JFrame {
         lblEmailResp.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblEmailResp.setText("Email:");
 
-        txtEmailResp.setToolTipText("Insira o nome completo do paciente");
+        txtEmailResp.setToolTipText("Email Responsável");
         txtEmailResp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmailRespActionPerformed(evt);
             }
         });
 
-        txtNomeResp.setToolTipText("Insira o nome completo do paciente");
+        txtNomeResp.setToolTipText("Nome Responsável");
         txtNomeResp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNomeRespActionPerformed(evt);
@@ -633,9 +637,9 @@ public class GerenciarPacientes extends javax.swing.JFrame {
 
         panelCRUD.setBackground(new java.awt.Color(255, 255, 255));
 
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        cmbPacientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                cmbPacientesActionPerformed(evt);
             }
         });
 
@@ -666,7 +670,7 @@ public class GerenciarPacientes extends javax.swing.JFrame {
         lblDtNasc1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblDtNasc1.setText("Data de nascimento:");
 
-        txtNome1.setToolTipText("Insira o nome completo do paciente");
+        txtNome1.setToolTipText("Nome");
 
         dtDataNasc1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -674,7 +678,7 @@ public class GerenciarPacientes extends javax.swing.JFrame {
         lblRua1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblRua1.setText("Rua:");
 
-        txtRua1.setToolTipText("Insira o nome completo do paciente");
+        txtRua1.setToolTipText("");
         txtRua1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtRua1ActionPerformed(evt);
@@ -685,14 +689,14 @@ public class GerenciarPacientes extends javax.swing.JFrame {
         lblNum1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblNum1.setText("Número:");
 
-        txtNum1.setToolTipText("Insira o nome completo do paciente");
+        txtNum1.setToolTipText("");
         txtNum1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNum1ActionPerformed(evt);
             }
         });
 
-        txtBairro1.setToolTipText("Insira o nome completo do paciente");
+        txtBairro1.setToolTipText("");
         txtBairro1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtBairro1ActionPerformed(evt);
@@ -707,7 +711,7 @@ public class GerenciarPacientes extends javax.swing.JFrame {
         lblCidade1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblCidade1.setText("Cidade:");
 
-        txtCidade1.setToolTipText("Insira o nome completo do paciente");
+        txtCidade1.setToolTipText("");
         txtCidade1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCidade1ActionPerformed(evt);
@@ -718,7 +722,7 @@ public class GerenciarPacientes extends javax.swing.JFrame {
         lblEstado1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblEstado1.setText("Estado:");
 
-        txtEstado1.setToolTipText("Insira o nome completo do paciente");
+        txtEstado1.setToolTipText("");
         txtEstado1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEstado1ActionPerformed(evt);
@@ -729,14 +733,14 @@ public class GerenciarPacientes extends javax.swing.JFrame {
         lblCEP1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblCEP1.setText("CEP:");
 
-        txtCEP1.setToolTipText("Insira o nome completo do paciente");
+        txtCEP1.setToolTipText("");
         txtCEP1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCEP1ActionPerformed(evt);
             }
         });
 
-        txtTel1.setToolTipText("Insira o nome completo do paciente");
+        txtTel1.setToolTipText("");
         txtTel1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTel1ActionPerformed(evt);
@@ -747,7 +751,7 @@ public class GerenciarPacientes extends javax.swing.JFrame {
         lblTel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblTel1.setText("Telefone:");
 
-        txtCel1.setToolTipText("Insira o nome completo do paciente");
+        txtCel1.setToolTipText("");
         txtCel1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCel1ActionPerformed(evt);
@@ -758,7 +762,7 @@ public class GerenciarPacientes extends javax.swing.JFrame {
         lblCel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblCel1.setText("Celular:");
 
-        txtEmail1.setToolTipText("Insira o nome completo do paciente");
+        txtEmail1.setToolTipText("");
         txtEmail1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmail1ActionPerformed(evt);
@@ -924,7 +928,7 @@ public class GerenciarPacientes extends javax.swing.JFrame {
         lblIdade1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblIdade1.setText("Idade:");
 
-        txtIdade1.setToolTipText("Insira o nome completo do paciente");
+        txtIdade1.setToolTipText("");
         txtIdade1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIdade1ActionPerformed(evt);
@@ -935,7 +939,7 @@ public class GerenciarPacientes extends javax.swing.JFrame {
         lblObs1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblObs1.setText("Observações:");
 
-        txtObs1.setToolTipText("Insira o nome completo do paciente");
+        txtObs1.setToolTipText("");
         txtObs1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtObs1ActionPerformed(evt);
@@ -986,7 +990,7 @@ public class GerenciarPacientes extends javax.swing.JFrame {
         panelResp1.setBackground(new java.awt.Color(255, 255, 255));
         panelResp1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Responsável", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
 
-        txtCelResp1.setToolTipText("Insira o nome completo do paciente");
+        txtCelResp1.setToolTipText("");
         txtCelResp1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCelResp1ActionPerformed(evt);
@@ -1001,7 +1005,7 @@ public class GerenciarPacientes extends javax.swing.JFrame {
         lblTelResp1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblTelResp1.setText("Telefone:");
 
-        txtTelResp1.setToolTipText("Insira o nome completo do paciente");
+        txtTelResp1.setToolTipText("");
         txtTelResp1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTelResp1ActionPerformed(evt);
@@ -1012,14 +1016,14 @@ public class GerenciarPacientes extends javax.swing.JFrame {
         lblEmailResp1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblEmailResp1.setText("Email:");
 
-        txtEmailResp1.setToolTipText("Insira o nome completo do paciente");
+        txtEmailResp1.setToolTipText("");
         txtEmailResp1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmailResp1ActionPerformed(evt);
             }
         });
 
-        txtNomeResp1.setToolTipText("Insira o nome completo do paciente");
+        txtNomeResp1.setToolTipText("");
         txtNomeResp1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNomeResp1ActionPerformed(evt);
@@ -1094,7 +1098,7 @@ public class GerenciarPacientes extends javax.swing.JFrame {
                                 .addGap(284, 284, 284)
                                 .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(cmbPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(panelCRUDLayout.createSequentialGroup()
                         .addComponent(painelDadoPessoal1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1123,7 +1127,7 @@ public class GerenciarPacientes extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cmbPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCRUDLayout.createSequentialGroup()
@@ -1220,7 +1224,7 @@ public class GerenciarPacientes extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCelRespActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-
+        //Cadastra usuário
         try {
             String generoStr = null;
 
@@ -1232,16 +1236,27 @@ public class GerenciarPacientes extends javax.swing.JFrame {
 
             Genero genero = Genero.valueOf(generoStr);
 
+            //Instancia de endereco
             Endereco endereco = new Endereco(txtRua.getText(), Integer.parseInt(txtNum.getText()),
                     txtBairro.getText(), txtCidade.getText(), txtEstado.getText(), Integer.parseInt(txtCEP.getText()));
+            
+            //Instancia de contato
             ContatoTelEmail contato = new ContatoTelEmail(txtTel.getText(), txtCel.getText(), txtEmail.getText());
+            
+            //Instancia de responsavel
             Responsavel resp = new Responsavel(txtNomeResp.getText(), txtTelResp.getText(), txtCelResp.getText(), txtEmailResp.getText());
+           
+            //Instancia usuario e adiciona na arraylist de controle
             Paciente paciente = new Paciente(Integer.parseInt(txtIdade.getText()), new Date(), txtObs.getText(), txtNome.getText(), dtDataNasc.getDate(), endereco, contato, genero, resp);
             HomePage.pacientes.add(paciente);
+            
+            
             JOptionPane.showMessageDialog(null, txtNome.getText() + " foi cadastrado(a) com sucesso!");
+            
+            //Atualiza combobox com o novo paciente
             dm.addElement(paciente.getNomeCompleto());
-            jComboBox1.setModel(dm);
-            jComboBox1.setSelectedIndex(0);
+            cmbPacientes.setModel(dm);
+            cmbPacientes.setSelectedIndex(0);
 
             clearFields();
         } catch (Exception e) {
@@ -1250,10 +1265,10 @@ public class GerenciarPacientes extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here
+    private void cmbPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbPacientesActionPerformed
+        // Atualiza campos de acordo com a seleção
 
-        int index = jComboBox1.getSelectedIndex();
+        int index = cmbPacientes.getSelectedIndex();
         txtNome1.setText(HomePage.pacientes.get(index).getNomeCompleto());
         txtBairro1.setText(HomePage.pacientes.get(index).getEndereco().getBairro());
         txtCEP1.setText(String.valueOf(HomePage.pacientes.get(index).getEndereco().getCep()));
@@ -1279,16 +1294,18 @@ public class GerenciarPacientes extends javax.swing.JFrame {
             rdMasc1.setSelected(false);
         }
 
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_cmbPacientesActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-
-        dispose();        // TODO add your handling code here:
+        //Voltar ao menu
+        dispose();        
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
+
+        //Remove o paciente selecionado
         try {
-            int index = jComboBox1.getSelectedIndex();
+            int index = cmbPacientes.getSelectedIndex();
             HomePage.pacientes.remove(index);
             preencherComboBox();
             clearFields();
@@ -1300,9 +1317,9 @@ public class GerenciarPacientes extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRemoveActionPerformed
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
-        // TODO add your handling code here:
+        // Altera as informações do paciente de acordo com os campos
         try {
-            int index = jComboBox1.getSelectedIndex();
+            int index = cmbPacientes.getSelectedIndex();
             HomePage.pacientes.get(index).setNomeCompleto(txtNome1.getText());
             HomePage.pacientes.get(index).setDataNascimento(dtDataNasc1.getDate());
             HomePage.pacientes.get(index).getEndereco().setRua(txtRua1.getText());
@@ -1325,7 +1342,7 @@ public class GerenciarPacientes extends javax.swing.JFrame {
             HomePage.pacientes.get(index).getContatoResponsavel().setEmail(txtEmailResp1.getText());
             HomePage.pacientes.get(index).getContatoResponsavel().setCelular(txtCelResp1.getText());
             HomePage.pacientes.get(index).getContatoResponsavel().setTelefone(txtTelResp1.getText());
-            JOptionPane.showMessageDialog(null, txtNome.getText() + " foi alterado(a) com sucesso!");
+            JOptionPane.showMessageDialog(null, txtNome1.getText() + " foi alterado(a) com sucesso!");
             preencherComboBox();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro: " + e.getMessage() + " favor preencher corretamente os dados!");
@@ -1449,9 +1466,9 @@ public class GerenciarPacientes extends javax.swing.JFrame {
     private javax.swing.JButton btnVoltar;
     private javax.swing.JToggleButton btnVoltar1;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JComboBox<String> cmbPacientes;
     private com.toedter.calendar.JDateChooser dtDataNasc;
     private com.toedter.calendar.JDateChooser dtDataNasc1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTabbedPane jTabbedPane1;

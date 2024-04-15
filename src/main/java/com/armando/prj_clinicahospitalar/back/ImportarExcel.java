@@ -4,7 +4,6 @@
  */
 package com.armando.prj_clinicahospitalar.back;
 
-import com.armando.prj_clinicahospitalar.front.HomePage;
 import static com.armando.prj_clinicahospitalar.front.HomePage.consultas;
 import static com.armando.prj_clinicahospitalar.front.HomePage.enfermeiros;
 import static com.armando.prj_clinicahospitalar.front.HomePage.medicos;
@@ -15,7 +14,6 @@ import java.util.Arrays;
 import javax.swing.JOptionPane;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 /**

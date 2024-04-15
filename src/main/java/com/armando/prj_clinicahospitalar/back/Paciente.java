@@ -62,6 +62,7 @@ public class Paciente extends DadoPessoal {
     }
 
 
+    //Construtor
     public Paciente(int idade, Date dataCadastro, String obsGeral, String nomeCompleto, Date dataNascimento, Endereco endereco, ContatoTelEmail contato, Genero genero, Responsavel resp) {
         super(nomeCompleto, dataNascimento, endereco, contato, genero);
         this.idPaciente = (long) proximoId++;
@@ -72,6 +73,7 @@ public class Paciente extends DadoPessoal {
         this.contatoResponsavel = resp;
     }
 
+     //Variável estática para gerar id sequencial
     private static int proximoId = 1;
     private Long idPaciente;
     private int idade;

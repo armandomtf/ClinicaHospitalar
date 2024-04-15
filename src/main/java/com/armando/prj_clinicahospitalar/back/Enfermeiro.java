@@ -28,12 +28,14 @@ public class Enfermeiro extends AtendenteHospitalar{
         this.treinadoOpRX = treinadoOpRX;
     }
 
+   //Construtor
     public Enfermeiro(boolean treinadoOpRX, String setor, int chSemanal, String nomeCompleto, Date dataNascimento, Endereco endereco, ContatoTelEmail contato, Genero genero) {
         super(setor, chSemanal, nomeCompleto, dataNascimento, endereco, contato, genero);
         this.idEnfermeiro = (long) proximoId++;
         this.treinadoOpRX = treinadoOpRX;
     }
 
+    //Variável estática para gerar id sequencial
     private static int proximoId = 1;
     private Long idEnfermeiro;
     private boolean treinadoOpRX;

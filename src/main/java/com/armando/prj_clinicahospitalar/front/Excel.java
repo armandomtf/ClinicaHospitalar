@@ -4,21 +4,9 @@
  */
 package com.armando.prj_clinicahospitalar.front;
 
-import com.armando.prj_clinicahospitalar.back.ConsultaMedica;
-import com.armando.prj_clinicahospitalar.back.Enfermeiro;
 import com.armando.prj_clinicahospitalar.back.ExportarExcel;
 import com.armando.prj_clinicahospitalar.back.ImportarExcel;
-import com.armando.prj_clinicahospitalar.back.Medico;
-import com.armando.prj_clinicahospitalar.back.Paciente;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.ArrayList;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
 
 /**
  *
@@ -58,6 +46,7 @@ public class Excel extends javax.swing.JFrame {
         btnVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Excel");
         setBackground(new java.awt.Color(255, 255, 255));
         setResizable(false);
 
@@ -199,14 +188,14 @@ public class Excel extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMainLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelImport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMainLayout.createSequentialGroup()
-                            .addComponent(btnVoltar)
-                            .addGap(328, 328, 328))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMainLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(panelImport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(panelMainLayout.createSequentialGroup()
                             .addComponent(panelExport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(180, 180, 180)))))
+                            .addGap(180, 180, 180)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMainLayout.createSequentialGroup()
+                        .addComponent(btnVoltar)
+                        .addGap(340, 340, 340))))
         );
         panelMainLayout.setVerticalGroup(
             panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -236,18 +225,19 @@ public class Excel extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnExportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportarActionPerformed
+        //Criando objeto para usar o método de escrita passando o nome e caminho do arquivo
         ExportarExcel e1 = new ExportarExcel();
         e1.writeToExcelSheet(txtNomeArq.getText(),txtCaminhoExportar.getText());
 
     }//GEN-LAST:event_btnExportarActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        // TODO add your handling code here:
+        // Voltar ao menu
         dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnImportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImportarActionPerformed
-        // TODO add your handling code here:
+        // Criando o objeto para usar o método de leitura passando o caminho do arquivo
         ImportarExcel i1=new ImportarExcel();
         i1.ReadDataFromExcel(txtArquivo.getText());
     }//GEN-LAST:event_btnImportarActionPerformed

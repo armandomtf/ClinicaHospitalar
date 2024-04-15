@@ -21,15 +21,17 @@ public class GerenciarEnfermeiros extends javax.swing.JFrame {
     DefaultComboBoxModel dm = new DefaultComboBoxModel();
 
     void preencherComboBox() {
+        //Função para preencher o combobox de enfermeiros
         dm = new DefaultComboBoxModel();
-        jComboBox1.setModel(dm);
+        cmbEnfermeiros.setModel(dm);
         for (int i = 0; i < HomePage.enfermeiros.size(); i++) {
             dm.addElement(String.valueOf(HomePage.enfermeiros.get(i).getNomeCompleto()));
-            jComboBox1.setModel(dm);
+            cmbEnfermeiros.setModel(dm);
         }
     }
 
     void clearFields() {
+        //Função para limpar os campos de cadastro
         txtNome.setText("");
         txtBairro.setText("");
         txtCEP.setText("");
@@ -51,6 +53,7 @@ public class GerenciarEnfermeiros extends javax.swing.JFrame {
     }
 
     void clearFields2() {
+        //Função para limpar os campos de edição
         txtNome1.setText("");
         txtBairro1.setText("");
         txtCEP1.setText("");
@@ -72,6 +75,7 @@ public class GerenciarEnfermeiros extends javax.swing.JFrame {
 
     public GerenciarEnfermeiros() {
         initComponents();
+        //preenche o combobox caso haja enfermeiro cadastrado
         if (HomePage.enfermeiros.size() > 0) {
             preencherComboBox();
         }
@@ -131,7 +135,7 @@ public class GerenciarEnfermeiros extends javax.swing.JFrame {
         rdFem = new javax.swing.JRadioButton();
         btnVoltar1 = new javax.swing.JToggleButton();
         panelCRUD = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cmbEnfermeiros = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         painelDadoPessoal1 = new javax.swing.JPanel();
         lblNome1 = new javax.swing.JLabel();
@@ -173,7 +177,7 @@ public class GerenciarEnfermeiros extends javax.swing.JFrame {
         btnVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Gerenciar Pacientes");
+        setTitle("Gerenciar Enfermeiros");
         setBackground(new java.awt.Color(255, 255, 255));
         setResizable(false);
         setSize(new java.awt.Dimension(800, 600));
@@ -581,9 +585,9 @@ public class GerenciarEnfermeiros extends javax.swing.JFrame {
 
         panelCRUD.setBackground(new java.awt.Color(255, 255, 255));
 
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        cmbEnfermeiros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                cmbEnfermeirosActionPerformed(evt);
             }
         });
 
@@ -985,13 +989,14 @@ public class GerenciarEnfermeiros extends javax.swing.JFrame {
                         .addGap(295, 295, 295)
                         .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(cmbEnfermeiros, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(panelCRUDLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelCRUDLayout.createSequentialGroup()
                         .addComponent(painelDadoPessoal1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
                         .addComponent(painelEnfermeiro1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(panelCRUDLayout.createSequentialGroup()
@@ -1010,16 +1015,17 @@ public class GerenciarEnfermeiros extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cmbEnfermeiros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(painelEnfermeiro1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(painelDadoPessoal1, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(177, Short.MAX_VALUE))
         );
 
@@ -1084,6 +1090,7 @@ public class GerenciarEnfermeiros extends javax.swing.JFrame {
     }//GEN-LAST:event_txtRuaActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+        //Cadastrar novo enfermeiro
 
         try {
             String generoStr = null;
@@ -1100,27 +1107,38 @@ public class GerenciarEnfermeiros extends javax.swing.JFrame {
                 rx = false;
             }
             Genero genero = Genero.valueOf(generoStr);
-
+            
+            //Criando instancia de endereco
             Endereco endereco = new Endereco(txtRua.getText(), Integer.parseInt(txtNum.getText()),
                     txtBairro.getText(), txtCidade.getText(), txtEstado.getText(), Integer.parseInt(txtCEP.getText()));
+             
+            //Criando instancia de contato
             ContatoTelEmail contato = new ContatoTelEmail(txtTel.getText(), txtCel.getText(), txtEmail.getText());
+            
+            //Criando instancia de enfermeiro e salvando na arraylist
             Enfermeiro enfermeiro = new Enfermeiro(rx, txtSetor1.getText(), Integer.parseInt(txtCH1.getText()), txtNome.getText(), dtDataNasc.getDate(), endereco, contato, genero);
             HomePage.enfermeiros.add(enfermeiro);
+            
             JOptionPane.showMessageDialog(null, txtNome.getText() + " foi cadastrado(a) com sucesso!");
+            
+            //Atualizando combobox
             dm.addElement(enfermeiro.getNomeCompleto());
-            jComboBox1.setModel(dm);
-            jComboBox1.setSelectedIndex(0);
+            cmbEnfermeiros.setModel(dm);
+            cmbEnfermeiros.setSelectedIndex(0);
+            
+            //Limpando os campos
             clearFields();
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro: " + e.getMessage() + " favor preencher corretamente os dados!");
 
         }
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here
+    private void cmbEnfermeirosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEnfermeirosActionPerformed
+        // Inserindo os dados de acordo com o enfermeiro selecionado
         clearFields2();
-        int index = jComboBox1.getSelectedIndex();
+        int index = cmbEnfermeiros.getSelectedIndex();
         txtNome1.setText(HomePage.enfermeiros.get(index).getNomeCompleto());
         txtBairro1.setText(HomePage.enfermeiros.get(index).getEndereco().getBairro());
         txtCEP1.setText(String.valueOf(HomePage.enfermeiros.get(index).getEndereco().getCep()));
@@ -1149,16 +1167,17 @@ public class GerenciarEnfermeiros extends javax.swing.JFrame {
         txtSetor2.setText(HomePage.enfermeiros.get(index).getSetor());
         txtCH2.setText(String.valueOf(HomePage.enfermeiros.get(index).getChSemanal()));
 
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_cmbEnfermeirosActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-
-        dispose();        // TODO add your handling code here:
+        //Voltar ao menu
+        dispose();       
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
+        //Remove o enfermeiro selecionado
         try {
-            int index = jComboBox1.getSelectedIndex();
+            int index = cmbEnfermeiros.getSelectedIndex();
             HomePage.enfermeiros.remove(index);
             preencherComboBox();
             clearFields2();
@@ -1171,9 +1190,9 @@ public class GerenciarEnfermeiros extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRemoveActionPerformed
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
-        // TODO add your handling code here:
+        // Altera as informações do enfermeiro de acordo com os campos
         try {
-            int index = jComboBox1.getSelectedIndex();
+            int index = cmbEnfermeiros.getSelectedIndex();
             HomePage.enfermeiros.get(index).setNomeCompleto(txtNome1.getText());
             HomePage.enfermeiros.get(index).setDataNascimento(dtDataNasc1.getDate());
             HomePage.enfermeiros.get(index).getEndereco().setRua(txtRua1.getText());
@@ -1337,9 +1356,9 @@ public class GerenciarEnfermeiros extends javax.swing.JFrame {
     private javax.swing.JToggleButton btnVoltar1;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JComboBox<String> cmbEnfermeiros;
     private com.toedter.calendar.JDateChooser dtDataNasc;
     private com.toedter.calendar.JDateChooser dtDataNasc1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTabbedPane jTabbedPane1;

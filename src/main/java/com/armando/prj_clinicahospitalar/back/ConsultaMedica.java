@@ -10,6 +10,7 @@ package com.armando.prj_clinicahospitalar.back;
  */
 public class ConsultaMedica {
 
+    //Construtor
     public ConsultaMedica(Long idPaciente, Long idMedico, String exameQueixa, String diagnostico, String prescricao, boolean indicacaoCirurgica) {
         this.idConsulta = (long) proximoId++;
         this.idPaciente = idPaciente;
@@ -18,9 +19,6 @@ public class ConsultaMedica {
         this.diagnostico = diagnostico;
         this.prescricao = prescricao;
         this.indicacaoCirurgica = indicacaoCirurgica;
-    }
-    
-    public ConsultaMedica(){
     }
 
     public Long getIdConsulta() {
@@ -78,6 +76,8 @@ public class ConsultaMedica {
     public void setIndicacaoCirurgica(boolean indicacaoCirurgica) {
         this.indicacaoCirurgica = indicacaoCirurgica;
     }
+    
+    //Variável estática para gerar id sequencial
     private static int proximoId = 1;
     private Long idConsulta;
     private Long idPaciente;

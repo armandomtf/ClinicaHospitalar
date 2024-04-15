@@ -21,15 +21,17 @@ public class GerenciarMedicos extends javax.swing.JFrame {
     DefaultComboBoxModel dm = new DefaultComboBoxModel();
 
     void preencherComboBox() {
+        //Função para preencher o combobox de médicos
         dm = new DefaultComboBoxModel();
-        jComboBox1.setModel(dm);
+        cmbMedicos.setModel(dm);
         for (int i = 0; i < HomePage.medicos.size(); i++) {
             dm.addElement(String.valueOf(HomePage.medicos.get(i).getNomeCompleto()));
-            jComboBox1.setModel(dm);
+            cmbMedicos.setModel(dm);
         }
     }
 
     void clearFields() {
+        //Função para limpar os campos de cadastro
         txtNome.setText("");
         txtBairro.setText("");
         txtCEP.setText("");
@@ -60,6 +62,7 @@ public class GerenciarMedicos extends javax.swing.JFrame {
     }
 
     void clearFields2() {
+        //Função para limpar os campos de edição
         txtNome1.setText("");
         txtBairro1.setText("");
         txtCEP1.setText("");
@@ -90,6 +93,7 @@ public class GerenciarMedicos extends javax.swing.JFrame {
     }
 
     public ArrayList<String> preencherEspecialidades(ArrayList<String> list) {
+        //Função para preencher array de especialidades de acordo com a seleção (cadastrar)
         if (chkCardio.isSelected()) {
             list.add(chkCardio.getText());
         }
@@ -122,6 +126,7 @@ public class GerenciarMedicos extends javax.swing.JFrame {
     }
     
     public ArrayList<String> preencherEspecialidades2(ArrayList<String> list) {
+        //Função para preencher a array de especialidades de acordo com a seleção (alterar)
         if (chkCardio1.isSelected()) {
             list.add(chkCardio.getText());
         }
@@ -155,6 +160,7 @@ public class GerenciarMedicos extends javax.swing.JFrame {
 
     public GerenciarMedicos() {
         initComponents();
+        //preenche o combobox se existir medicos cadastrados
         if (HomePage.medicos.size() > 0) {
             preencherComboBox();
         }
@@ -226,7 +232,7 @@ public class GerenciarMedicos extends javax.swing.JFrame {
         chkOftalmo = new javax.swing.JCheckBox();
         btnVoltar1 = new javax.swing.JToggleButton();
         panelCRUD = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cmbMedicos = new javax.swing.JComboBox<>();
         btnVoltar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         btnRemove = new javax.swing.JButton();
@@ -280,7 +286,7 @@ public class GerenciarMedicos extends javax.swing.JFrame {
         lblTitulo1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Gerenciar Pacientes");
+        setTitle("Gerenciar Médicos");
         setBackground(new java.awt.Color(255, 255, 255));
         setResizable(false);
         setSize(new java.awt.Dimension(800, 600));
@@ -316,7 +322,7 @@ public class GerenciarMedicos extends javax.swing.JFrame {
         lblRua.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblRua.setText("Rua:");
 
-        txtRua.setToolTipText("Insira o nome completo do paciente");
+        txtRua.setToolTipText("Rua");
         txtRua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtRuaActionPerformed(evt);
@@ -327,14 +333,14 @@ public class GerenciarMedicos extends javax.swing.JFrame {
         lblNum.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblNum.setText("Número:");
 
-        txtNum.setToolTipText("Insira o nome completo do paciente");
+        txtNum.setToolTipText("Número");
         txtNum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNumActionPerformed(evt);
             }
         });
 
-        txtBairro.setToolTipText("Insira o nome completo do paciente");
+        txtBairro.setToolTipText("Bairro");
         txtBairro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtBairroActionPerformed(evt);
@@ -349,7 +355,7 @@ public class GerenciarMedicos extends javax.swing.JFrame {
         lblCidade.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblCidade.setText("Cidade:");
 
-        txtCidade.setToolTipText("Insira o nome completo do paciente");
+        txtCidade.setToolTipText("Cidade");
         txtCidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCidadeActionPerformed(evt);
@@ -360,7 +366,7 @@ public class GerenciarMedicos extends javax.swing.JFrame {
         lblEstado.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblEstado.setText("Estado:");
 
-        txtEstado.setToolTipText("Insira o nome completo do paciente");
+        txtEstado.setToolTipText("Estado");
         txtEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEstadoActionPerformed(evt);
@@ -371,14 +377,14 @@ public class GerenciarMedicos extends javax.swing.JFrame {
         lblCEP.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblCEP.setText("CEP:");
 
-        txtCEP.setToolTipText("Insira o nome completo do paciente");
+        txtCEP.setToolTipText("CEP");
         txtCEP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCEPActionPerformed(evt);
             }
         });
 
-        txtTel.setToolTipText("Insira o nome completo do paciente");
+        txtTel.setToolTipText("Telefone");
         txtTel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTelActionPerformed(evt);
@@ -389,7 +395,7 @@ public class GerenciarMedicos extends javax.swing.JFrame {
         lblTel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblTel.setText("Telefone:");
 
-        txtCel.setToolTipText("Insira o nome completo do paciente");
+        txtCel.setToolTipText("Celular");
         txtCel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCelActionPerformed(evt);
@@ -400,7 +406,7 @@ public class GerenciarMedicos extends javax.swing.JFrame {
         lblCel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblCel.setText("Celular:");
 
-        txtEmail.setToolTipText("Insira o nome completo do paciente");
+        txtEmail.setToolTipText("Email");
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmailActionPerformed(evt);
@@ -584,7 +590,7 @@ public class GerenciarMedicos extends javax.swing.JFrame {
         lblCRM1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblCRM1.setText("CRM:");
 
-        txtCRM1.setToolTipText("Insira o nome completo do paciente");
+        txtCRM1.setToolTipText("CRM");
         txtCRM1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCRM1ActionPerformed(evt);
@@ -632,7 +638,7 @@ public class GerenciarMedicos extends javax.swing.JFrame {
         lblSetor1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblSetor1.setText("Setor:");
 
-        txtSetor1.setToolTipText("Insira o nome completo do paciente");
+        txtSetor1.setToolTipText("Setor");
         txtSetor1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSetor1ActionPerformed(evt);
@@ -643,7 +649,7 @@ public class GerenciarMedicos extends javax.swing.JFrame {
         lblCH1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblCH1.setText("Carga Horária:");
 
-        txtCH1.setToolTipText("Insira o nome completo do paciente");
+        txtCH1.setToolTipText("Carga Horária");
         txtCH1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCH1ActionPerformed(evt);
@@ -750,9 +756,9 @@ public class GerenciarMedicos extends javax.swing.JFrame {
                         .addComponent(panelEsp1, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(painelMedico1Layout.createSequentialGroup()
                             .addGroup(painelMedico1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblSetor1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtSetor1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtSetor1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblSetor1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addGroup(painelMedico1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(lblCH1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtCH1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))))
@@ -771,12 +777,13 @@ public class GerenciarMedicos extends javax.swing.JFrame {
                 .addGroup(painelMedico1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelMedico1Layout.createSequentialGroup()
                         .addComponent(lblSetor1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtSetor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(28, 28, 28))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelMedico1Layout.createSequentialGroup()
                         .addComponent(lblCH1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCH1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(painelMedico1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtCH1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtSetor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panelEsp1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(15, Short.MAX_VALUE))
@@ -796,9 +803,9 @@ public class GerenciarMedicos extends javax.swing.JFrame {
 
         panelCRUD.setBackground(new java.awt.Color(255, 255, 255));
 
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        cmbMedicos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                cmbMedicosActionPerformed(evt);
             }
         });
 
@@ -829,7 +836,7 @@ public class GerenciarMedicos extends javax.swing.JFrame {
         lblDtNasc1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblDtNasc1.setText("Data de nascimento:");
 
-        txtNome1.setToolTipText("Insira o nome completo do paciente");
+        txtNome1.setToolTipText("");
 
         dtDataNasc1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -837,7 +844,7 @@ public class GerenciarMedicos extends javax.swing.JFrame {
         lblRua1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblRua1.setText("Rua:");
 
-        txtRua1.setToolTipText("Insira o nome completo do paciente");
+        txtRua1.setToolTipText("");
         txtRua1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtRua1ActionPerformed(evt);
@@ -848,14 +855,14 @@ public class GerenciarMedicos extends javax.swing.JFrame {
         lblNum1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblNum1.setText("Número:");
 
-        txtNum1.setToolTipText("Insira o nome completo do paciente");
+        txtNum1.setToolTipText("");
         txtNum1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNum1ActionPerformed(evt);
             }
         });
 
-        txtBairro1.setToolTipText("Insira o nome completo do paciente");
+        txtBairro1.setToolTipText("");
         txtBairro1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtBairro1ActionPerformed(evt);
@@ -870,7 +877,7 @@ public class GerenciarMedicos extends javax.swing.JFrame {
         lblCidade1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblCidade1.setText("Cidade:");
 
-        txtCidade1.setToolTipText("Insira o nome completo do paciente");
+        txtCidade1.setToolTipText("");
         txtCidade1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCidade1ActionPerformed(evt);
@@ -881,7 +888,7 @@ public class GerenciarMedicos extends javax.swing.JFrame {
         lblEstado1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblEstado1.setText("Estado:");
 
-        txtEstado1.setToolTipText("Insira o nome completo do paciente");
+        txtEstado1.setToolTipText("");
         txtEstado1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEstado1ActionPerformed(evt);
@@ -892,14 +899,14 @@ public class GerenciarMedicos extends javax.swing.JFrame {
         lblCEP1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblCEP1.setText("CEP:");
 
-        txtCEP1.setToolTipText("Insira o nome completo do paciente");
+        txtCEP1.setToolTipText("");
         txtCEP1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCEP1ActionPerformed(evt);
             }
         });
 
-        txtTel1.setToolTipText("Insira o nome completo do paciente");
+        txtTel1.setToolTipText("");
         txtTel1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTel1ActionPerformed(evt);
@@ -910,7 +917,7 @@ public class GerenciarMedicos extends javax.swing.JFrame {
         lblTel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblTel1.setText("Telefone:");
 
-        txtCel1.setToolTipText("Insira o nome completo do paciente");
+        txtCel1.setToolTipText("");
         txtCel1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCel1ActionPerformed(evt);
@@ -921,7 +928,7 @@ public class GerenciarMedicos extends javax.swing.JFrame {
         lblCel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblCel1.setText("Celular:");
 
-        txtEmail1.setToolTipText("Insira o nome completo do paciente");
+        txtEmail1.setToolTipText("");
         txtEmail1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmail1ActionPerformed(evt);
@@ -1087,7 +1094,7 @@ public class GerenciarMedicos extends javax.swing.JFrame {
         lblCRM.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblCRM.setText("CRM:");
 
-        txtCRM2.setToolTipText("Insira o nome completo do paciente");
+        txtCRM2.setToolTipText("");
         txtCRM2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCRM2ActionPerformed(evt);
@@ -1135,7 +1142,7 @@ public class GerenciarMedicos extends javax.swing.JFrame {
         lblSetor.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblSetor.setText("Setor:");
 
-        txtSetor.setToolTipText("Insira o nome completo do paciente");
+        txtSetor.setToolTipText("");
         txtSetor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSetorActionPerformed(evt);
@@ -1146,7 +1153,7 @@ public class GerenciarMedicos extends javax.swing.JFrame {
         lblCH.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblCH.setText("Carga Horária:");
 
-        txtCH.setToolTipText("Insira o nome completo do paciente");
+        txtCH.setToolTipText("");
         txtCH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCHActionPerformed(evt);
@@ -1316,7 +1323,7 @@ public class GerenciarMedicos extends javax.swing.JFrame {
                         .addGap(293, 293, 293)
                         .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(cmbMedicos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelCRUDLayout.setVerticalGroup(
@@ -1326,7 +1333,7 @@ public class GerenciarMedicos extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cmbMedicos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(painelDadoPessoal1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1400,10 +1407,16 @@ public class GerenciarMedicos extends javax.swing.JFrame {
     }//GEN-LAST:event_txtRuaActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        ArrayList<String> especialidades = new ArrayList<String>();
+        //Cadastrar novo médico
+        
+        //Cria e instancia array de especialidades
+        ArrayList<String> especialidades = new ArrayList<String>(); 
+        
         try {
             String generoStr = null;
             boolean cirurgiao = false;
+            
+            //Chamada da função para preencher a array de especialidades
             especialidades = preencherEspecialidades(especialidades);
 
             if (rdMasc.isSelected()) {
@@ -1418,15 +1431,24 @@ public class GerenciarMedicos extends javax.swing.JFrame {
             }
             Genero genero = Genero.valueOf(generoStr);
 
+            //Instancia de endereço
             Endereco endereco = new Endereco(txtRua.getText(), Integer.parseInt(txtNum.getText()),
                     txtBairro.getText(), txtCidade.getText(), txtEstado.getText(), Integer.parseInt(txtCEP.getText()));
+            
+            //Instancia de contato
             ContatoTelEmail contato = new ContatoTelEmail(txtTel.getText(), txtCel.getText(), txtEmail.getText());
+            
+            //Instancia medico e adiciona na arraylist de controle
             Medico medico = new Medico(Integer.parseInt(txtCRM1.getText()), cirurgiao, txtSetor1.getText(), Integer.parseInt(txtCH1.getText()), txtNome.getText(), dtDataNasc.getDate(), endereco, contato, genero, especialidades);
             HomePage.medicos.add(medico);
+            
+            
             JOptionPane.showMessageDialog(null, txtNome.getText() + " foi cadastrado(a) com sucesso!");
+            
+            //Atualiza combobox com o novo médico
             dm.addElement(medico.getNomeCompleto());
-            jComboBox1.setModel(dm);
-            jComboBox1.setSelectedIndex(0);
+            cmbMedicos.setModel(dm);
+            cmbMedicos.setSelectedIndex(0);
             clearFields();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro: " + e.getMessage() + " favor preencher corretamente os dados!");
@@ -1472,9 +1494,9 @@ public class GerenciarMedicos extends javax.swing.JFrame {
     }//GEN-LAST:event_chkOftalmoActionPerformed
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
-        // TODO add your handling code here:
+        // Altera informações do médico de acordo com os campos
         try{
-            int index = jComboBox1.getSelectedIndex();
+            int index = cmbMedicos.getSelectedIndex();
             HomePage.medicos.get(index).setNomeCompleto(txtNome1.getText());
             HomePage.medicos.get(index).setDataNascimento(dtDataNasc1.getDate());
             HomePage.medicos.get(index).getEndereco().setRua(txtRua1.getText());
@@ -1578,8 +1600,9 @@ public class GerenciarMedicos extends javax.swing.JFrame {
     }//GEN-LAST:event_txtRua1ActionPerformed
 
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
+        //Remove o médico selecionado
         try {
-            int index = jComboBox1.getSelectedIndex();
+            int index = cmbMedicos.getSelectedIndex();
             HomePage.medicos.remove(index);
             preencherComboBox();
             clearFields();
@@ -1591,14 +1614,14 @@ public class GerenciarMedicos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRemoveActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-
-        dispose();        // TODO add your handling code here:
+        //Voltar ao menu
+        dispose();        
     }//GEN-LAST:event_btnVoltarActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here
+    private void cmbMedicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbMedicosActionPerformed
+        // Atualiza campos de acordo com a seleção
         clearFields2();
-        int index = jComboBox1.getSelectedIndex();
+        int index = cmbMedicos.getSelectedIndex();
         txtNome1.setText(HomePage.medicos.get(index).getNomeCompleto());
         txtBairro1.setText(HomePage.medicos.get(index).getEndereco().getBairro());
         txtCEP1.setText(String.valueOf(HomePage.medicos.get(index).getEndereco().getCep()));
@@ -1625,8 +1648,11 @@ public class GerenciarMedicos extends javax.swing.JFrame {
             rdNao.setSelected(true);
             rdSim.setSelected(false);
         }
+        
         txtSetor.setText(HomePage.medicos.get(index).getSetor());
         txtCH.setText(String.valueOf(HomePage.medicos.get(index).getChSemanal()));
+        
+        
         if (HomePage.medicos.get(index).getAreasEspecialidade().contains("Cardiologia")) {
             chkCardio1.setSelected(true);
         }
@@ -1655,7 +1681,7 @@ public class GerenciarMedicos extends javax.swing.JFrame {
             chkOftalmo1.setSelected(true);
         }
 
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_cmbMedicosActionPerformed
 
     private void btnVoltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltar1ActionPerformed
         // TODO add your handling code here:
@@ -1727,9 +1753,9 @@ public class GerenciarMedicos extends javax.swing.JFrame {
     private javax.swing.JCheckBox chkPsi1;
     private javax.swing.JCheckBox chkUrologia;
     private javax.swing.JCheckBox chkUrologia1;
+    private javax.swing.JComboBox<String> cmbMedicos;
     private com.toedter.calendar.JDateChooser dtDataNasc;
     private com.toedter.calendar.JDateChooser dtDataNasc1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTabbedPane jTabbedPane1;

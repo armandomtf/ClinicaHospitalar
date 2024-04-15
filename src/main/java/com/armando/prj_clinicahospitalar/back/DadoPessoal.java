@@ -52,6 +52,7 @@ public class DadoPessoal {
         this.genero = genero;
     }
 
+    //Construtor
     public DadoPessoal(String nomeCompleto, Date dataNascimento, Endereco endereco, ContatoTelEmail contato, Genero genero) {
         this.nomeCompleto = nomeCompleto;
         this.dataNascimento = dataNascimento;
@@ -60,8 +61,6 @@ public class DadoPessoal {
         this.genero = genero;
     }
     
-    public DadoPessoal(){
-    }
     
     private String nomeCompleto;
     private Date dataNascimento;
